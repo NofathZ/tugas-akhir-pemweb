@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Mentee;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,6 +50,24 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // return Validator::make($data, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:mentees'],
+        //     'password' => ['required', 'string', 'min:8', 'confirmed'],
+        //     'phone_number' => ['required', 'string', 'max:255', 'unique:mentees'],
+        //     'image' => ['required', 'string', 'max:255'],
+        //     'registration_link' => ['required', 'string', 'email', 'max:500']
+        // ]);
+
+        // return Validator::make($data, [
+        //     'name' => ['required'],
+        //     'email' => ['required'],
+        //     'password' => ['required'],
+        //     'phone_number' => ['required'],
+        //     'image' => ['required'],
+        //     'registration_link' => ['required']
+        // ]);
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -64,10 +83,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        // return Mentee::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'phone_number' => $data['phone_number'],
+        //     'image' => $data['image'],
+        //     'registration_link' => $data['registration_link']
+        // ]);
     }
 }
