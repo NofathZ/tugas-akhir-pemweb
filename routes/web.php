@@ -53,3 +53,10 @@ Route::get('/', function () {
 // });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/list-mentor', function() {
+        return view('layouts.admin');
+    });
+});
