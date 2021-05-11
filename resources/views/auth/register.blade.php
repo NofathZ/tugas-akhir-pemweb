@@ -44,27 +44,27 @@
         <div id="signup">
             <div class="row flex-center-md">
                 <div class="col-md-2"></div>
-                <div class="col-md-3">
+                <div class="col-md-3 border shadow p-5 mb-5 bg-body rounded-3">
                     <div class="panel panel-shadowed text-center">
                         <div class="panel-body">
                             <h5>I am looking for a mentor</h5>
                             <p>Create a <b>mentee</b> account.</p><br>
-                            <div><a href="#" type="button" class="btn btn-primary btn-lg">Find a mentor</a></div>
+                            <div><a href="mentee-signup.html" type="button" class="btn btn-primary btn-lg">Find a mentor</a></div>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-md-2">
-                    <div class="divider">
-                        <p class="text-center">OR</p>
+                <div class="col-md-2 p-5 align-self-center">
+                    <div class="divider ">
+                        <p class="text-center fw-bold">OR</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 border shadow p-5 mb-5 bg-body rounded-3">
                     <div class="panel panel-shadowed text-center">
                         <div class="panel-body">
                             <h5 class="text-heavy">I want to be a mentor</h5>
                             <p translate="signup.sort_description.recruiter">Create a <b>mentor</b> account.</p><br>
-                            <div><a href="#" class="btn btn-lg btn-success">Become a Mentor</a></div>
+                            <div><a href="" class="btn btn-lg btn-success">Become a Mentor</a></div>
                         </div>
                     </div>
                 </div>
