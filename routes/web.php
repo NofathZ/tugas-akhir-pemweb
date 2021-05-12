@@ -57,6 +57,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->group(function () {
     Route::get('/list-mentor', function() {
-        return view('layouts.admin');
+        return view('admin-list-mentor');
+    });
+    Route::get('/list-voucher', function() {
+        return view('admin-list-voucher');
+    });
+    Route::get('/tambah-voucher', function() {
+        return view('admin-tambah-voucher');
+    });
+});
+
+Route::prefix('mentor')->group(function () {
+    Route::get('/list-mentor', function() {
+        return view('layouts.mentor');
     });
 });
