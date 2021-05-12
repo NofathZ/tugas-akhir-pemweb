@@ -118,11 +118,11 @@
                     <div class="mb-3 mx-auto">
                         <div class="mb-2">Login as:</div>
                         <div class="mb-4">
-                            <input type="radio" class="btn-check" name="options-outlined" id="mentee" autocomplete="off"
+                            <input type="radio" class="btn-check" name="user-type" id="mentee" autocomplete="off"
                                 checked>
                             <label class="btn btn-outline-primary py-2 px-3" for="mentee">Mentee</label>
 
-                            <input type="radio" class="btn-check" name="options-outlined" id="mentor"
+                            <input type="radio" class="btn-check" name="user-type" id="mentor"
                                 autocomplete="off">
                             <label class="btn btn-outline-primary py-2 px-3" for="mentor">Mentor</label>
 

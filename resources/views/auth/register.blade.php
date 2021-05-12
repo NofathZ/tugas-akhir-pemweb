@@ -64,7 +64,7 @@
                         <div class="panel-body">
                             <h5 class="text-heavy">I want to be a mentor</h5>
                             <p translate="signup.sort_description.recruiter">Create a <b>mentor</b> account.</p><br>
-                            <div><a href="" class="btn btn-lg btn-success">Become a Mentor</a></div>
+                            <div><a href="{{ route('mentor-register') }}" class="btn btn-lg btn-success">Become a Mentor</a></div>
                         </div>
                     </div>
                 </div>

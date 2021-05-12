@@ -20,6 +20,13 @@ Route::get('/', function () {
     return view('welcome'); // nanti ganti
 });
 
+Route::get('/registers', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
+
+Route::post('/home', [App\Http\Controllers\AdminController::class, 'insert'])->name('adddata');
+Route::get('/mentor-register', [App\Http\Controllers\AdminController::class, 'tesRegister'])->name('mentor-register');
+Route::post('/add-mentor', [App\Http\Controllers\AdminController::class, 'registerMentor'])->name('add-mentor');
+
+
 // // Detail Mentor page (params id is mentor_id)
 // Route::get('/mentor-list', function () { 
 //     return view('welcome'); // nanti ganti

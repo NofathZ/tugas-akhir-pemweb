@@ -39,18 +39,19 @@
     <section id="login-form">
         <div class="whitespace"></div>
         <div class="form-signin border shadow p-3 mb-5 bg-body rounded-3">
-            <form class="needs-validation mx-3 my-3 " novalidate>
+            <form class="needs-validation mx-3 my-3 " action="{{ route('add-mentor') }}" method="POST" novalidate>
+            @csrf
                 <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentor</h1>
                 <div class="form-row">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="validationName" placeholder="Name" required>
+                        <input type="text" name="name" class="form-control" id="validationName" placeholder="Name" required>
                         <label for="validationName" class="form-label">Full name</label>
                         <div class="invalid-feedback">
                             Please enter a valid name!
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="validationEmail" placeholder="me@example.com"
+                        <input type="email" name="email" class="form-control" id="validationEmail" placeholder="me@example.com"
                             required>
                         <div class="invalid-feedback">
                             Please enter a valid email!
@@ -59,7 +60,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control " id="validationPassword" pattern="(?=^.{1,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="Password" required>
+                        <input type="password" name="password" class="form-control " id="validationPassword" pattern="(?=^.{1,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="Password" required>
                         <label for="validationPassword">Password</label>
                         
                         <div class="invalid-feedback">
