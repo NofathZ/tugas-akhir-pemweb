@@ -15,21 +15,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes();
-
 // HomePage Mentee
 Route::get('/', function () {
     return view('welcome'); // nanti ganti
 });
 
-Route::get('/registers', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
-
-Route::post('/home', [App\Http\Controllers\AdminController::class, 'insert'])->name('adddata');
-Route::get('/mentor-register', [App\Http\Controllers\AdminController::class, 'mentorSignUp'])->name('mentor-register');
-Route::post('/add-mentor', [App\Http\Controllers\AdminController::class, 'addMentor'])->name('add-mentor');
-Route::get('/mentee-register', [App\Http\Controllers\AdminController::class, 'menteeSignUp'])->name('mentee-register');
-Route::post('/add-mentee', [App\Http\Controllers\AdminController::class, 'addMentee'])->name('add-mentee');
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // // Detail Mentor page (params id is mentor_id)
 // Route::get('/mentor-list', function () { 
 //     return view('welcome'); // nanti ganti
@@ -62,16 +53,15 @@ Route::post('/add-mentee', [App\Http\Controllers\AdminController::class, 'addMen
 //     });
 // });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/mentor-register', [App\Http\Controllers\RegisterController::class, 'mentorSignUp'])->name('mentor-register');
+Route::post('/add-mentor', [App\Http\Controllers\RegisterController::class, 'addMentor'])->name('add-mentor');
+Route::get('/mentee-register', [App\Http\Controllers\RegisterController::class, 'menteeSignUp'])->name('mentee-register');
+Route::post('/add-mentee', [App\Http\Controllers\RegisterController::class, 'addMentee'])->name('add-mentee');
 
 Route::prefix('admin')->group(function () {
-    Route::get('/list-mentor', function() {
-        return view('admin-list-mentor');
-    });
-    Route::get('/list-voucher', function() {
-        return view('admin-list-voucher');
-    });
+    Route::get('/list-mentor', [App\Http\Controllers\AdminController::class, 'showMentors']);
+    Route::get('/list-voucher', [App\Http\Controllers\AdminController::class, 'showCodes']);
+    Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
     Route::get('/tambah-voucher', function() {
         return view('admin-tambah-voucher');
     });

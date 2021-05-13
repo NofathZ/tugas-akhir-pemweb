@@ -14,7 +14,7 @@
     <tbody>
     @foreach($codes as $code)
         <tr>
-            <td> {{$code->id}} </td>
+            <td> {{$code->id_code}} </td>
             <td> {{$code->nominal}} </td>
             <td> {{$code->status}} </td>
         </tr>

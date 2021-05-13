@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCodeTable extends Migration
+class CreateCodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateCodeTable extends Migration
     public function up()
     {
         Schema::create('codes', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id_code')->primary();
             $table->integer('nominal')->nullable('false');
             $table->string('status')->nullable('false');
             $table->timestamps();

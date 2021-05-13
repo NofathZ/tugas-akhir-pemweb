@@ -8,38 +8,9 @@ use App\Models\Code;
 
 class AdminController extends Controller
 {
-
-    public function mentorSignUp(){
-        return view('auth.mentor-signup');
-    }
-
-    public function menteeSignUp(){
-        return view('auth.mentee-signup');
-    }
-
-    public function addMentor(Request $request){
-        $mentor = new User;
-        $mentor->name = $request->name;
-        $mentor->email = $request->email;
-        $mentor->password = $request->password;
-
-        $mentor->save();
-        return view('auth.login');
-    }
-    
-    public function addMentee(Request $request){
-        $mentee = new User;
-        $mentee->name = $request->name;
-        $mentee->email = $request->email;
-        $mentee->password = $request->password;
-
-        $mentee->save();
-        return view('auth.login');
-    }
-    
     public function showMentors(){
         $mentors = User::where('verification_status', 'Unverified');
-        return view('', $mentors);
+        return view('admin-list-mentor')->with('mentors', $mentors);
     }
 
     public function showMentorInfo(){
@@ -60,12 +31,12 @@ class AdminController extends Controller
     
     public function showCodes(){
         $codes = Code::all();
-        return view('admin-list-voucher', $codes);
+        return view('admin-list-voucher')->with('codes', $codes);
     }
 
     public function addCode(Request $request){
         $code = new Code;
-        $code->id = $request->id;
+        $code->id_code = $request->id;
         $code->nominal = $request->nominal;
         $code->status = "Available";
 
