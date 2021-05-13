@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,10 @@ Route::get('/', function () {
 Route::get('/registers', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
 
 Route::post('/home', [App\Http\Controllers\AdminController::class, 'insert'])->name('adddata');
-Route::get('/mentor-register', [App\Http\Controllers\AdminController::class, 'tesRegister'])->name('mentor-register');
-Route::post('/add-mentor', [App\Http\Controllers\AdminController::class, 'registerMentor'])->name('add-mentor');
+Route::get('/mentor-register', [App\Http\Controllers\AdminController::class, 'mentorSignUp'])->name('mentor-register');
+Route::post('/add-mentor', [App\Http\Controllers\AdminController::class, 'addMentor'])->name('add-mentor');
+Route::get('/mentee-register', [App\Http\Controllers\AdminController::class, 'menteeSignUp'])->name('mentee-register');
+Route::post('/add-mentee', [App\Http\Controllers\AdminController::class, 'addMentee'])->name('add-mentee');
 
 
 // // Detail Mentor page (params id is mentor_id)

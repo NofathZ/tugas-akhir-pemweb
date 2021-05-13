@@ -39,7 +39,7 @@
     <section id="login-form">
         <div class="whitespace"></div>
         <div class="form-signin border shadow p-3 mb-5 bg-body rounded-3">
-            <form class="needs-validation mx-3 my-3 " novalidate>
+            <form class="needs-validation mx-3 my-3 " action="{{ route('add-mentee') }}" novalidate>
                 <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentee</h1>
                 <div class="form-row">
                     <div class="form-floating mb-3">
@@ -70,7 +70,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary btn-lg mb-3 col-12 p-3" type="submit">SIGN UP</button>
                 </div>
-                <p class="fw-light fs-6 text-center">Already have an account? <a href=""
+                <p class="fw-light fs-6 text-center">Already have an account? <a href="/login"
                         class="text-decoration-none">Login</a></p>
             </form>
         </div>

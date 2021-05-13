@@ -127,7 +127,7 @@
                         <div class="panel-body">
                             <h5>I am looking for a mentor</h5>
                             <p>Create a <b>mentee</b> account.</p><br>
-                            <div><a href="mentee-signup.html" type="button" class="btn btn-primary btn-lg">Find a mentor</a></div>
+                            <div><a href="{{ route('mentee-register') }}" type="button" class="btn btn-primary btn-lg">Find a mentor</a></div>
                         </div>
                     </div>
 

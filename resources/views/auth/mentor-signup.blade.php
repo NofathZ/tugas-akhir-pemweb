@@ -71,7 +71,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary btn-lg mb-3 col-12 p-3" type="submit">SIGN UP</button>
                 </div>
-                <p class="fw-light fs-6 text-center">Already have an account? <a href=""
+                <p class="fw-light fs-6 text-center">Already have an account? <a href="/login"
                         class="text-decoration-none">Login</a></p>
             </form>
         </div>

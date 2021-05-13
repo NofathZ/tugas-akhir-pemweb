@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,9 +70,9 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
 
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -152,7 +152,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary btn-lg mb-3 col-12 p-3" type="submit">LOGIN</button>
                 </div>
-                <p class="fw-light fs-6 text-center">Don't have account yet? <a href=""
+                <p class="fw-light fs-6 text-center">Don't have account yet? <a href="/register"
                         class="text-decoration-none">Sign up now!</a></p>
             </form>
         </div>
@@ -164,4 +164,4 @@
         crossorigin="anonymous"></script>
 </body>
 
-</html> --}}
+</html>
