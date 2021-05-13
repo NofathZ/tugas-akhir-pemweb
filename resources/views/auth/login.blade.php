@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,9 +70,9 @@
         </div>
     </div>
 </div>
-@endsection --}}
+@endsection
 
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -164,4 +164,4 @@
         crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html> --}}
