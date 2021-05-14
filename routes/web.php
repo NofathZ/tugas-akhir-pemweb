@@ -53,9 +53,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     });
 // });
 
-Route::get('/mentor-register', [App\Http\Controllers\RegisterController::class, 'mentorSignUp'])->name('mentor-register');
+Route::get('/mentor-register', function(){
+    return view('auth.mentor-signup');
+})->name('mentor-register');
 Route::post('/add-mentor', [App\Http\Controllers\RegisterController::class, 'addMentor'])->name('add-mentor');
-Route::get('/mentee-register', [App\Http\Controllers\RegisterController::class, 'menteeSignUp'])->name('mentee-register');
+Route::get('/mentee-register', function (){
+    return view('auth.mentee-signup');
+})->name('mentee-register');
 Route::post('/add-mentee', [App\Http\Controllers\RegisterController::class, 'addMentee'])->name('add-mentee');
 
 Route::prefix('admin')->group(function () {

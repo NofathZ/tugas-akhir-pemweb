@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Models\Mentee;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,11 +67,18 @@ class RegisterController extends Controller
         //     'registration_link' => ['required']
         // ]);
 
-        return Validator::make($data, [
+        $message = array(
+            'required' => 'The :attribute field is required.',
+            'email.email' => 'Please enter a valid email',
+            'password.min:8' => 'You must enter a password that contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!'
+        );
+
+        return Validator::make($data, $message, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            'role' => ['required', 'string']
+        ] );
     }
 
     /**
@@ -83,19 +89,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // $roleUser = $data['role'];
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => $data['role']
         ]);
 
-        // return Mentee::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        //     'phone_number' => $data['phone_number'],
-        //     'image' => $data['image'],
-        //     'registration_link' => $data['registration_link']
-        // ]);
+        $user->assignRole($data['role']);
+
+        return $user;
     }
 }

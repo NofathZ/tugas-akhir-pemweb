@@ -55,6 +55,7 @@
                         <label for="email" class="form-label">Email</label>
                         <div class="invalid-feedback" role="alert">
                             Please enter a valid email!
+                        </div>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -65,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="role" value="mentor">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary btn-lg mb-3 col-12 p-3" type="submit">SIGN UP</button>
                 </div>

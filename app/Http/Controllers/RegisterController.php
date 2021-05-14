@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -20,8 +21,9 @@ class RegisterController extends Controller
         $mentor->name = $request->name;
         $mentor->email = $request->email;
         $mentor->password = $request->password;
-
+        
         $mentor->save();
+        $mentor->assignRole('mentor');
         return view('auth.login');
     }
     
@@ -30,8 +32,9 @@ class RegisterController extends Controller
         $mentee->name = $request->name;
         $mentee->email = $request->email;
         $mentee->password = $request->password;
-
+        
         $mentee->save();
+        $mentee->assignRole('mentee');
         return view('auth.login');
     }
     

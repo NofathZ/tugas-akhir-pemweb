@@ -41,7 +41,7 @@
         <div class="form-signin border shadow p-3 mb-5 bg-body rounded-3">
             <form class="needs-validation mx-3 my-3 " action="{{ route('register') }}" method="POST" novalidate>
             @csrf
-                <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentor</h1>
+                <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentee</h1>
                 <div class="form-row">
                     <div class="form-floating mb-3">
                         <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Full Name" required autocomplete="name">
@@ -55,6 +55,7 @@
                         <label for="email" class="form-label">Email</label>
                         <div class="invalid-feedback" role="alert">
                             Please enter a valid email!
+                        </div>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -65,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="role" name="role" value="mentee">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary btn-lg mb-3 col-12 p-3" type="submit">SIGN UP</button>
                 </div>

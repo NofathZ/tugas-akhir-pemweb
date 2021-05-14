@@ -112,7 +112,8 @@
     <section id="login-form">
         <div class="whitespace"></div>
         <div class="form-signin border shadow p-3 mb-5 bg-body rounded-3">
-            <form class="needs-validation mx-3 my-3" novalidate>
+            <form class="needs-validation mx-3 my-3" action="{{ route('login') }}" method="POST" novalidate>
+            @csrf
                 <h1 class="h4 mb-5 fw-bold text-center">Login</h1>
                 <div class="form-row">
                     <div class="mb-3 mx-auto">
@@ -130,18 +131,16 @@
 
                     </div>
                     <div class="form-floating mb-4">
-                        <input type="email" class="form-control" id="validationEmail" placeholder="me@example.com"
-                            required>
-                        <div class="invalid-feedback">
+                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="invalid-feedback" role="alert">
                             Please enter a valid email!
                         </div>
-                        <label for="validationEmail" class="form-label">Email</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control " id="validationPassword" pattern="(?=^.{1,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="Password" required>
-                        <label for="validationPassword">Password</label>
-                        
-                        <div class="invalid-feedback">
+                    <div class="form-floating mb-4">
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password" minlength="8" pattern="(?=^.{1,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required autocomplete="new-password">
+                        <label for="password">Password</label>
+                        <div class="invalid-feedback" role="alert">
                             You must enter a password that contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!
                         </div>
                     </div>
