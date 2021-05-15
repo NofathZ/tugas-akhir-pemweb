@@ -36,13 +36,21 @@
       </div>
       <div class="navbar-inner">
         <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
           <!-- Nav items -->
-          <ul class="navbar-nav">
+          <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item">
               <a class="nav-link active" href="#">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
+              </a>
+              <a class="nav-link active" href="/mentor/list-mentee">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">List Mentee</span>
+              </a>
+              <a class="nav-link active" href="/mentor/detail-mentee">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Detail Mentee</span>
               </a>
             </li>
           </ul>
@@ -89,13 +97,13 @@
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
               <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+              {{-- <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-toggle="collapse" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
                   <i class="sidenav-toggler-line"></i>
                   <i class="sidenav-toggler-line"></i>
                 </div>
-              </div>
+              </div> --}}
             </li>
             <li class="nav-item d-sm-none">
               <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
@@ -228,7 +236,7 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid mt-4">
-      <h1>Nofath </h1>
+      @yield('content')
     </div>
   </div>
   <!-- Argon Scripts -->
@@ -247,7 +255,7 @@
   {{-- <script src="assets/libexfile/chart.js/dist/Chart.min.js"></script> --}}
   {{-- <script src="assets/libexfile/chart.js/dist/Chart.extension.js"></script> --}}
   <!-- Argon JS -->
-  {{-- !! <script src="assets/js/argon.js?v=1.2.0"></script> --}}
+  {{-- !! <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script> --}}
 </body>
 
 </html>

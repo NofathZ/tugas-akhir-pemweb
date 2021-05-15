@@ -65,6 +65,9 @@ Route::post('/add-mentee', [App\Http\Controllers\RegisterController::class, 'add
 Route::prefix('admin')->group(function () {
     Route::get('/list-mentor', [App\Http\Controllers\AdminController::class, 'showMentors']);
     Route::get('/list-voucher', [App\Http\Controllers\AdminController::class, 'showCodes']);
+    Route::get('/verifikasi-mentor', function() { //ini nanit ada params id
+        return view('admin-verifikasi-mentor');
+    });
     Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
     Route::get('/tambah-voucher', function() {
         return view('admin-tambah-voucher');
@@ -72,7 +75,10 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('mentor')->group(function () {
-    Route::get('/list-mentor', function() {
-        return view('layouts.mentor');
+    Route::get('/list-mentee', function() {
+        return view('mentor-list-mentee');
+    });
+    Route::get('/detail-mentee', function() { // ini nanti ada params id
+        return view('mentor-detail-mentee');
     });
 });
