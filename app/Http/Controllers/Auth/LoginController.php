@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -28,7 +29,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function redirectTo() {
+        $role = Auth::user()->role; 
+        switch ($role) {
+          case 'admin':
+            return '/admin/list-mentor';
+            break;
+          default:
+            return '/home'; 
+          break;
+        }
+      }
 
     /**
      * Create a new controller instance.
@@ -49,23 +62,14 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        // Check status
-        if ($request->user_type == 'Mentor' && $user->role == 'mentor') {
+    //     // Check status
+        if ($request->user_type != $user->role && $user->role != 'admin') {
             $this->logout($request);
-
-            // Send message
-            throw ValidationException::withMessages([
-                $this->username() => [__('Invalid login!')],
-            ]);
         }
+    }
 
-        if ($request->user_type == 'Mentee' && $user->role == 'mentee') {
-            $this->logout($request);
-
-            // Send message
-            throw ValidationException::withMessages([
-                $this->username() => [__('Invalid login!')],
-            ]);
-        }
+    protected function loggedOut(Request $request)
+    {
+        return redirect('/login');
     }
 }

@@ -45,11 +45,10 @@
                     <div class="mb-3 mx-auto">
                         <div class="mb-2">Login as:</div>
                         <div class="mb-4">
-                            <input type="radio" class="btn-check" name="user_type" id="mentee" value="Mentor" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="user_type" id="mentee" value="mentee" autocomplete="off">
                             <label class="btn btn-outline-primary py-2 px-3" for="mentee">Mentee</label>
 
-                            <input type="radio" class="btn-check" name="user_type" id="mentor" value="Mentee"
+                            <input type="radio" class="btn-check" name="user_type" id="mentor" value="mentor"
                                 autocomplete="off">
                             <label class="btn btn-outline-primary py-2 px-3" for="mentor">Mentor</label>
 

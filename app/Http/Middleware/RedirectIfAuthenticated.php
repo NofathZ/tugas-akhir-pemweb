@@ -23,7 +23,15 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect('/home');
+                $role = Auth::user()->role; 
+                switch ($role) {
+                    case 'admin':
+                    return '/admin/list-mentor';
+                    break;
+                    default:
+                    return '/home'; 
+                    break;
+                }
             }
         }
 
