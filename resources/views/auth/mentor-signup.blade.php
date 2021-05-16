@@ -65,13 +65,33 @@
                             You must enter a password that contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!
                         </div>
                     </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="tel" class="form-control" id="validationPhone" placeholder="Telephone"
+                            pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)"
+                            required>
+                        <label for="validationPhone" class="form-label">Phone number</label>
+                        <div class="invalid-feedback">
+                            Please enter a valid phone number!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Required files</label>
+                        <input type="file" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please upload the required file!
+                        </div>
+                    </div>
                 </div>
                 <input type="hidden" name="role" value="mentor">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary btn-lg mb-3 col-12 p-3" type="submit">SIGN UP</button>
                 </div>
                 <p class="fw-light fs-6 text-center">Already have an account? <a href="/login"
-                        class="text-decoration-none">Login</a></p>
+                        class="text-decoration-none">Login</a>
+                </p>
+                <input type="hidden" name="role" value="mentor">
             </form>
         </div>
     </section>

@@ -65,6 +65,16 @@
                             You must enter a password that contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!
                         </div>
                     </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="tel" class="form-control" id="validationPhone" placeholder="Telephone"
+                            pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)"
+                            required>
+                        <label for="validationPhone" class="form-label">Phone number</label>
+                        <div class="invalid-feedback">
+                            Please enter a valid phone number
+                        </div>
+                    </div>
                 </div>
                 <input type="hidden" id="role" name="role" value="mentee">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
