@@ -49,24 +49,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        // return Validator::make($data, [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:mentees'],
-        //     'password' => ['required', 'string', 'min:8', 'confirmed'],
-        //     'phone_number' => ['required', 'string', 'max:255', 'unique:mentees'],
-        //     'image' => ['required', 'string', 'max:255'],
-        //     'registration_link' => ['required', 'string', 'email', 'max:500']
-        // ]);
-
-        // return Validator::make($data, [
-        //     'name' => ['required'],
-        //     'email' => ['required'],
-        //     'password' => ['required'],
-        //     'phone_number' => ['required'],
-        //     'image' => ['required'],
-        //     'registration_link' => ['required']
-        // ]);
-
         $message = array(
             'required' => 'The :attribute field is required.',
             'email.email' => 'Please enter a valid email',
@@ -89,13 +71,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // $roleUser = $data['role'];
-
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => $data['role']
+            'role' => $data['role'],
+            'verification_status' => 'Unverified'
         ]);
 
         $user->assignRole($data['role']);

@@ -1,3 +1,4 @@
+@hasrole('admin')
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -116,3 +117,6 @@
     </div>
 </body>
 </html>
+@else
+    {{-- handle kalo bukan admin --}}
+@endhasrole

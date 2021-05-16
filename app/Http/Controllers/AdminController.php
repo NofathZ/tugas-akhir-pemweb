@@ -8,8 +8,13 @@ use App\Models\Code;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function showMentors(){
-        $mentors = User::where('verification_status', 'Unverified');
+        $mentors = User::all()->where('verification_status', 'Unverified');
         return view('admin-list-mentor')->with('mentors', $mentors);
     }
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,34 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        // Check status
+        if ($request->user_type == 'Mentor' && $user->role == 'mentor') {
+            $this->logout($request);
+
+            // Send message
+            throw ValidationException::withMessages([
+                $this->username() => [__('Invalid login!')],
+            ]);
+        }
+
+        if ($request->user_type == 'Mentee' && $user->role == 'mentee') {
+            $this->logout($request);
+
+            // Send message
+            throw ValidationException::withMessages([
+                $this->username() => [__('Invalid login!')],
+            ]);
+        }
     }
 }
