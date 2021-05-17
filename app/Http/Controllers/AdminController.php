@@ -18,10 +18,9 @@ class AdminController extends Controller
         return view('admin-list-mentor')->with('mentors', $mentors);
     }
 
-    public function showMentorInfo(){
-        $id = $_POST['id'];
-        $info = User::where('id', $id);
-        return view('', $info);
+    public function showMentorInfo($id){
+        $info = User::all()->where('id', $id);
+        return view('admin-verifikasi-mentor')->with('info', $info);
     }
 
     public function verifyMentor(){

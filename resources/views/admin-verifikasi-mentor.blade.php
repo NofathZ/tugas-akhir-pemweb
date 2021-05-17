@@ -5,19 +5,20 @@
 @section('content')
 
 <div class="d-flex">
-    <img src="{{ asset('img/theme/team-1.jpg') }}" class="img-thumbnail" alt="picture" style="width: 15%">
+    @foreach($info as $item)
+    <img src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" class="img-thumbnail" alt="picture" style="width: 15%">
     <div class="pl-2 pt-1">
-        <h5>Nofath</h5>
-        <h5>nofath@gmail.com</h5>
-        <h5>0812313</h5>
+        <h5><b>Name: </b>{{ $item->name }}</h5>
+        <h5><b>Email: </b>{{ $item->email }}</h5>
+        <h5><b>Phone Number: </b>{{ $item->phone_number }}</h5>
     </div>
 </div>
 
-<h1 class="mt-3">Link Lampiran</h1>
+<h1 class="mt-3">File Lampiran</h1>
 <div class="card p-3">
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" id="linkRegistration" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" value="Nofath" readonly>
-        <button class="btn btn-secondary" id="copyLink" onclick="copyLink()">Copy</button>
+        <h5><a href="{{ asset('storage/registrations/'.$item->id.'/'.$item->req_files) }}"> Download File Registrasi {{ $item->name }}</a></h5>
+        @endforeach
     </div>
 </div>
 <div class="d-flex flex-row-reverse mt-3">

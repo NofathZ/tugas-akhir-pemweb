@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -71,16 +75,56 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'role' => $data['role'],
-            'verification_status' => 'Unverified'
-        ]);
 
-        $user->assignRole($data['role']);
-
+        
+        if ($data['role'] == 'mentor'){
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phone_number' => $data['phone_number'],
+                'role' => $data['role'],
+                'req_files' => $data['req_files'],
+                'verification_status' => 'Unverified'
+                ]);
+            if(request()->hasFile('image')){
+                $avatar = request()->file('image')->getClientOriginalName();
+                request()->file('image')->storeAs('avatars', $user->id . '/' . $avatar, '');
+                $user->update(['image' => $avatar]);
+            } 
+            if(request()->hasFile('req_files')){
+                $files = request()->file('req_files')->getClientOriginalName();
+                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $files, '');
+                $user->update(['req_files' => $files]);
+            } 
+                $user->assignRole('mentor');
+        }
+        elseif($data['role'] == 'mentor'){
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'phone_number' => $data['phone_number'],
+                'role' => $data['role'],
+                'money' => 0
+                ]);
+            $user->assignRole('mentee');
+        }
         return $user;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect($this->redirectPath());
     }
 }

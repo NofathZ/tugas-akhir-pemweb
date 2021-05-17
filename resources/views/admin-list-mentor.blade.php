@@ -10,17 +10,15 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone Number</th>
-        <th scope="col">Reg. Link</th>
     </tr>
     </thead>
     <tbody>
         @foreach($mentors as $mentor)
         <tr>
             <td> {{$mentor->id}} </td>
-            <td> {{$mentor->name}} </td>
+            <td><a href="{{ route('verifikasi-mentor', $mentor->id) }}"> {{$mentor->name}}</a> </td>
             <td> {{$mentor->email}} </td>
             <td> {{$mentor->phone_number}} </td>
-            <td> {{$mentor->registration_link}} </td>
         </tr>
     @endforeach
     </tbody>

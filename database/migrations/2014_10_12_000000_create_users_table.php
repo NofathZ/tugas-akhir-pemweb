@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string("password")->nullable("false");
             $table->string("phone_number")->nullable();
             $table->string("role")->nullable();
-            $table->binary("image")->nullable();
+            $table->string("image")->nullable();
             $table->decimal("money")->nullable();
-            $table->string("registration_link")->nullable();
+            $table->string("req_files")->nullable();
             $table->string("verification_status")->nullable();
 
             

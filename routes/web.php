@@ -56,16 +56,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/mentor-register', function(){
     return view('auth.mentor-signup');
     })->name('mentor-register');
-Route::get('/mentee-register', function (){
+Route::get('/mentee-register', function ($id = null){
     return view('auth.mentee-signup');
     })->name('mentee-register');
 
 Route::prefix('admin')->group(function () {
     Route::get('/list-mentor', [App\Http\Controllers\AdminController::class, 'showMentors']);
     Route::get('/list-voucher', [App\Http\Controllers\AdminController::class, 'showCodes']);
-    Route::get('/verifikasi-mentor', function() { //ini nanit ada params id
-        return view('admin-verifikasi-mentor');
-    });
+    Route::get('/verifikasi-mentor/{id}', [App\Http\Controllers\AdminController::class, 'showMentorInfo'])->name('verifikasi-mentor');
     Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
     Route::get('/tambah-voucher', function() {
         return view('admin-tambah-voucher');
