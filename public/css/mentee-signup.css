@@ -44,6 +44,7 @@ body {
 }
 .picture:hover {
     border-color: #2ca8ff;
+    opacity: 75%;
 }
 
 .picture input[type="file"] {
