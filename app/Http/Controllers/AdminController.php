@@ -17,20 +17,20 @@ class AdminController extends Controller
         $mentors = User::all()->where('verification_status', 'Unverified');
         return view('admin-list-mentor')->with('mentors', $mentors);
     }
-
+    
     public function showMentorInfo($id){
         $info = User::all()->where('id', $id);
         return view('admin-verifikasi-mentor')->with('info', $info);
     }
-
-    public function verifyMentor(){
-        $id = $_POST['id'];
+    
+    public function verifyMentor($id){
         User::where('id', $id)->update(['verification_status' => 'Verified']);
+        return redirect('/admin/list-mentor');
     }
 
-    public function rejectMentor(){
-        $id = $_POST['id'];
-        User::where('id', $id)->update(['verification_status' => 'Rejected']);
+    public function rejectMentor($id){
+        User::where('id', $id)->delete();
+        return redirect('/admin/list-mentor');
     }
     
     public function showCodes(){

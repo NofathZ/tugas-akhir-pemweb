@@ -18,7 +18,6 @@
 <div class="card p-3">
     <div class="input-group flex-nowrap">
         <h5><a href="{{ asset('storage/registrations/'.$item->id.'/'.$item->req_files) }}"> Download File Registrasi {{ $item->name }}</a></h5>
-        @endforeach
     </div>
 </div>
 <div class="d-flex flex-row-reverse mt-3">
@@ -41,7 +40,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Terima</button>
+                <a href="{{ route('verify', $item->id) }}"><button type="button" class="btn btn-success">Terima</button></a>
             </div>
         </div>
     </div>
@@ -58,11 +57,12 @@
                 </button>
             </div>
             <div class="modal-body">
-            Refuse Mentor
+                Refuse Mentor
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Tolak</button>
+                <a href="{{ route('reject', $item->id) }}"><button type="button" class="btn btn-danger">Tolak</button></a>
+                @endforeach
             </div>
         </div>
     </div>

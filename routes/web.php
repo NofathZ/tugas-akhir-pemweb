@@ -64,6 +64,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/list-mentor', [App\Http\Controllers\AdminController::class, 'showMentors']);
     Route::get('/list-voucher', [App\Http\Controllers\AdminController::class, 'showCodes']);
     Route::get('/verifikasi-mentor/{id}', [App\Http\Controllers\AdminController::class, 'showMentorInfo'])->name('verifikasi-mentor');
+    Route::get('/verify/{id}', [App\Http\Controllers\AdminController::class, 'verifyMentor'])->name('verify');
+    Route::get('/reject/{id}', [App\Http\Controllers\AdminController::class, 'rejectMentor'])->name('reject');
     Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
     Route::get('/tambah-voucher', function() {
         return view('admin-tambah-voucher');
