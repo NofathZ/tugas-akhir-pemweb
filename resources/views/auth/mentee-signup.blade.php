@@ -43,6 +43,14 @@
             @csrf
                 <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentee</h1>
                 <div class="form-row">
+                    <div class="mb-3">
+                        <div class="picture-container">
+                            <div class="picture">
+                                <img src="img/user-circle-solid.svg" class="picture-src" id="profilePreview">
+                                <input type="file" id="imageUpload">
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-floating mb-3">
                         <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Full Name" required autocomplete="name">
                         <label for="name" class="form-label">Full name</label>
@@ -86,10 +94,13 @@
         </div>
     </section>
 
-    <script src="js/form-validation.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/profile-picture.js"></script>
+    <script src="js/form-validation.js"></script>
 </body>
 
 </html>
