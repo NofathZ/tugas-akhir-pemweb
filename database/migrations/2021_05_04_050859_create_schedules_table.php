@@ -15,12 +15,12 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->integer("id_mentor")->references("id_mentor")->on("mentors")->onDelete("cascade")->nullable("false");
-            $table->integer("id_mentee")->references("id_mentee")->on("mentees")->onDelete("cascade")->nullable("false");
+            $table->integer("id_mentor")->references("id")->on("users")->onDelete("cascade")->nullable("false");
+            $table->integer("id_mentee")->references("id")->on("users")->onDelete("cascade")->nullable("false");
             $table->integer("id_course")->references("id_course")->on("courses")->onDelete("cascade")->nullable("false");
-            $table->dateTime("start_at")->nullable("false");
-            $table->dateTime("end_at")->nullable("false");
-            $table->boolean("isValid")->nullable("false"); // add default value (True)
+            $table->dateTime("start_at")->nullable();
+            $table->dateTime("end_at")->nullable();
+            $table->boolean("isValid")->nullable(); // add default value (True)
             $table->timestamps();
         });
     }
