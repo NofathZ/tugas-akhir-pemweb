@@ -73,12 +73,8 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('mentor')->group(function () {
-    Route::get('/list-mentee', function() {
-        return view('mentor-list-mentee');
-    });
-    Route::get('/detail-mentee', function() { // ini nanti ada params id
-        return view('mentor-detail-mentee');
-    });
+    Route::get('/list-mentee', [App\Http\Controllers\MentorController::class, 'showMentees']);
+    Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
 });
 
 Route::get('/mentee', function() {
