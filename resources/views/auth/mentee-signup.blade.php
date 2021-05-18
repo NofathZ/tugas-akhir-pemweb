@@ -39,7 +39,7 @@
     <section id="login-form">
         <div class="whitespace"></div>
         <div class="form-signin border shadow p-3 mb-5 bg-body rounded-3">
-            <form class="needs-validation mx-3 my-3 " action="{{ route('register') }}" method="POST" novalidate>
+            <form class="needs-validation mx-3 my-3 " action="{{ route('register') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
                 <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentee</h1>
                 <div class="form-row">
@@ -47,7 +47,7 @@
                         <div class="picture-container">
                             <div class="picture">
                                 <img src="img/user-circle-solid.svg" class="picture-src" id="profilePreview">
-                                <input type="file" id="imageUpload" accept="image/*">
+                                <input type="file" name="image" id="imageUpload" accept="image/*">
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="tel" class="form-control" id="validationPhone" placeholder="Telephone"
+                        <input type="tel" class="form-control" name="phone_number" id="validationPhone" placeholder="Telephone"
                             pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)"
                             required>
                         <label for="validationPhone" class="form-label">Phone number</label>

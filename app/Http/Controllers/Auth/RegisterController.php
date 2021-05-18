@@ -75,8 +75,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        
         if ($data['role'] == 'mentor'){
             $user = User::create([
                 'name' => $data['name'],
@@ -88,18 +86,20 @@ class RegisterController extends Controller
                 'verification_status' => 'Unverified'
                 ]);
             if(request()->hasFile('image')){
-                $avatar = request()->file('image')->getClientOriginalName();
-                request()->file('image')->storeAs('avatars', $user->id . '/' . $avatar, '');
-                $user->update(['image' => $avatar]);
+                // $avatar = request()->file('image')->getClientOriginalName();
+                $filename = $user->role .'-'. $user->id;
+                request()->file('image')->storeAs('avatars', $user->id . '/' . $filename, '');
+                $user->update(['image' => $filename]);
             } 
             if(request()->hasFile('req_files')){
-                $files = request()->file('req_files')->getClientOriginalName();
-                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $files, '');
-                $user->update(['req_files' => $files]);
+                // $files = request()->file('req_files')->getClientOriginalName();
+                $filename = 'registration-'. $user->role .'-'. $user->id;
+                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $filename, '');
+                $user->update(['req_files' => $filename]);
             } 
                 $user->assignRole('mentor');
         }
-        elseif($data['role'] == 'mentor'){
+        elseif($data['role'] == 'mentee'){
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -108,6 +108,12 @@ class RegisterController extends Controller
                 'role' => $data['role'],
                 'money' => 0
                 ]);
+            if(request()->hasFile('image')){
+                // $avatar = request()->file('image')->getClientOriginalName();
+                $filename = $user->role .'-'. $user->id;
+                request()->file('image')->storeAs('avatars', $user->id . '/' . $filename, '');
+                $user->update(['image' => $filename]);
+            } 
             $user->assignRole('mentee');
         }
         return $user;
