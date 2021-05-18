@@ -78,3 +78,7 @@ Route::prefix('mentor')->group(function () {
         return view('mentor-detail-mentee');
     });
 });
+
+Route::get('/mentee', function() {
+    return view('mentee-detail-mentor');
+});
