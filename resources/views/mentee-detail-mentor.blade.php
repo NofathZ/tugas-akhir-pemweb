@@ -1,4 +1,4 @@
-@extends('layouts.mentee');
+@extends('layouts.mentee')
 
 @section('content')
     <div class="row">
@@ -70,28 +70,6 @@
                 
                 Rooting for you and your UX career! 🙌
             </section>
-            <section>
-                <h1>Skill</h1>
-                <div class="skill d-flex flex-wrap">
-                    <span class="py-1 px-2 mr-1 mb-2 card">Matematika</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Biologi</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                    <span class="py-1 px-2 mr-1 mb-2 card">Mate</span>
-                </div>
-            </section>
         </div>
     </div>
 
@@ -108,14 +86,11 @@
         }
         
         .description {
-            line-height: 1.5rem;
+            line-height: 1.6rem;
         }
 
         .spot-left {
-            /* position: relative; */
             float: left;
-            /* width: 20px; */
-            /* display: inline-block; */
         }
 
         .skill span{

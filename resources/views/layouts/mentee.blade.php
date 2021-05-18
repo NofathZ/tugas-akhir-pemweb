@@ -1,163 +1,215 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  {{-- <link rel="stylesheet" href="assets/libexfile/nucleo/css/nucleo.css" type="text/css"> --}}
+  {{-- <link rel="stylesheet" href="assets/libexfile/@fortawesome/fontawesome-free/css/all.min.css" type="text/css"> --}}
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  {{-- !! <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css"> --}}
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    {{-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('sass/app.scss') }}" rel="stylesheet">
+  <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
+  <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg bg-white navbar-light position-sticky top-0 shadow py-2">
-        <div class="container">
-        <a class="navbar-brand mr-lg-5" href="./index.html">
-            <img src="./assets/img/brand/blue.png">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbar_global">
-            <div class="navbar-collapse-header">
-            <div class="row">
-                <div class="col-6 collapse-brand">
-                <a href="./index.html">
-                    <img src="./assets/img/brand/blue.png">
-                </a>
+  <!-- Sidenav -->
+  
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative input-group-merge">
+                {{-- <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-                <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                </button>
+                <input class="form-control" placeholder="Search" type="text"> --}}
+                <div class="header bg-primary">
+                  <div class="container-fluid">
+                    <div class="header-body">
+                      <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                          <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            </div>
-            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-ui-04 d-lg-none"></i>
-                <span class="nav-link-inner--text">Components</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-xl">
-                <div class="dropdown-menu-inner">
-                    <a href="https://demos.creative-tim.com/argon-design-system/docs/getting-started/overview.html" class="media d-flex align-items-center">
-                    <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                        <i class="ni ni-spaceship"></i>
-                    </div>
-                    <div class="media-body ml-3">
-                        <h6 class="heading text-primary mb-md-1">Getting started</h6>
-                        <p class="description d-none d-md-inline-block mb-0">Learn how to use compiling Scss, change brand colors and more.</p>
-                    </div>
-                    </a>
-                    <a href="https://demos.creative-tim.com/argon-design-system/docs/foundation/colors.html" class="media d-flex align-items-center">
-                    <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                        <i class="ni ni-palette"></i>
-                    </div>
-                    <div class="media-body ml-3">
-                        <h6 class="heading text-primary mb-md-1">Foundation</h6>
-                        <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for .</p>
-                    </div>
-                    </a>
-                    <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="media d-flex align-items-center">
-                    <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                        <i class="ni ni-ui-04"></i>
-                    </div>
-                    <div class="media-body ml-3">
-                        <h5 class="heading text-warning mb-md-1">Components</h5>
-                        <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
-                    </div>
-                    </a>
-                </div>
-                </div>
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+          <!-- Navbar links -->
+          <ul class="navbar-nav align-items-center  ml-md-auto ">
+            <li class="nav-item d-sm-none">
+              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                <i class="ni ni-zoom-split-in"></i>
+              </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Examples</span>
-                </a>
-                <div class="dropdown-menu">
-                <a href="./examples/landing.html" class="dropdown-item">Landing</a>
-                <a href="./examples/profile.html" class="dropdown-item">Profile</a>
-                <a href="./examples/login.html" class="dropdown-item">Login</a>
-                <a href="./examples/register.html" class="dropdown-item">Register</a>
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ni ni-bell-55"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                <!-- Dropdown header -->
+                <div class="px-3 py-3">
+                  <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
                 </div>
+                
+                <!-- View all -->
+                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+              </div>
             </li>
-            </ul>
-            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://www.facebook.com/CreativeTim/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
-                <i class="fa fa-facebook-square"></i>
-                <span class="nav-link-inner--text d-lg-none">Facebook</span>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ni ni-ungroup"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                <div class="row shortcuts px-4">
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                      <i class="ni ni-calendar-grid-58"></i>
+                    </span>
+                    <small>Calendar</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                      <i class="ni ni-email-83"></i>
+                    </span>
+                    <small>Email</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                      <i class="ni ni-credit-card"></i>
+                    </span>
+                    <small>Payments</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                      <i class="ni ni-books"></i>
+                    </span>
+                    <small>Reports</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                      <i class="ni ni-pin-3"></i>
+                    </span>
+                    <small>Maps</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                      <i class="ni ni-basket"></i>
+                    </span>
+                    <small>Shop</small>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="{{ asset('img/theme/team-4.jpg') }}">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>My profile</span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-                <i class="fa fa-instagram"></i>
-                <span class="nav-link-inner--text d-lg-none">Instagram</span>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>Settings</span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
-                <i class="fa fa-twitter-square"></i>
-                <span class="nav-link-inner--text d-lg-none">Twitter</span>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-calendar-grid-58"></i>
+                  <span>Activity</span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                <i class="fa fa-github"></i>
-                <span class="nav-link-inner--text d-lg-none">Github</span>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-support-16"></i>
+                  <span>Support</span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="btn btn-outline-primary" href="https://www.creative-tim.com/builder/argon" target="_blank">
-                <span class="nav-link-inner--text">Online Builder</span>
+                <div class="dropdown-divider"></div>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
                 </a>
+              </div>
             </li>
-            <li class="nav-item d-none d-lg-block">
-                <a href="https://www.creative-tim.com/product/argon-design-system-pro?ref=ads-upgrade-pro" target="_blank" class="btn btn-primary btn-icon">
-                <span class="btn-inner--icon">
-                    <i class="fa fa-shopping-cart"></i>
-                </span>
-                <span class="nav-link-inner--text">Upgrade to PRO</span>
-                </a>
-            </li>
-            </ul>
+          </ul>
         </div>
-        </div>
+      </div>
     </nav>
-    <!-- End Navbar -->
-    <div class="mentee-custom-container" style="border: 2px solid black">
-        @yield('content')
+    <!-- Header -->
+    <!-- Header -->
+    {{-- <div class="header bg-primary">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Default</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <!-- Card stats -->
+        </div>
+      </div>
+    </div> --}}
+    <!-- Page content -->
+    <div class="container-fluid mt-4">
+      @yield('content')
     </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  {{-- <script src="assets/libexfile/jquery/dist/jquery.min.js"></script> --}}
+  <script src="{{ asset('libexfile/jquery/dist/jquery.min.js') }}"></script>
+  {{-- !! <script src="assets/libexfile/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
+  <script src="{{ asset('libexfile/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  {{-- <script src="assets/libexfile/js-cookie/js.cookie.js"></script> --}}
+  <script src="{{ asset('libexfile/js-cookie/js.cookie.js') }}"></script>
+  {{-- <script src="assets/libexfile/jquery.scrollbar/jquery.scrollbar.min.js"></script> --}}
+  <script src="{{ asset('libexfile/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+  {{-- <script src="assets/libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script> --}}
+  <script src="{{ asset('libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+  <!-- Optional JS -->
+  {{-- <script src="assets/libexfile/chart.js/dist/Chart.min.js"></script> --}}
+  {{-- <script src="assets/libexfile/chart.js/dist/Chart.extension.js"></script> --}}
+  <!-- Argon JS -->
+  {{-- !! <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script> --}}
 </body>
-<style>
-    .body {
-        margin: 0;
-        padding: 0;
-        line-height: 0;
-    }
-    
-    .mentee-custom-container {
-        width: 80%;
-        margin: 0 auto;
-    }
-</style>
+
 </html>
