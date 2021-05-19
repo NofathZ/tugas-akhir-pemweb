@@ -26,7 +26,9 @@ class User extends Authenticatable
         'image',
         'verification_status',
         'money',
-        'req_files'
+        'req_files',
+        'price',
+        'description'
     ];
 
     /**
