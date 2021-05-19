@@ -123,7 +123,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="form-label">Required files</label>
-                        <input type="file" name="req_files" class="form-control" required>
+                        <input type="file" name="req_files" class="form-control" accept=".zip,.rar,.7zip" required>
                         <div class="invalid-feedback">
                             Please upload the required file!
                         </div>
