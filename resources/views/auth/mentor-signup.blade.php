@@ -36,14 +36,14 @@
     </header>
 
 
-    <section id="login-form">
+    <section id="signup-form">
         <div class="whitespace"></div>
-        <div class="form-signin border shadow p-3 mb-5 bg-body rounded-3">
+        <div class="form-signup border shadow p-3 mb-5 bg-body rounded-3">
             <form class="needs-validation mx-3 my-3 " action="{{ route('register') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
-                <h1 class="h4 mb-4 fw-bold text-center">Sign Up as Mentor</h1>
+                <h1 class="h4 mb-5 fw-bold text-center">Sign Up as Mentor</h1>
                 <div class="form-row">
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <div class="picture-container">
                             <div class="picture">
                                 <img src="img/user-circle-solid.svg" class="picture-src" id="profilePreview">
@@ -51,14 +51,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-4">
                         <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Full Name" required autocomplete="name">
                         <label for="name" class="form-label">Full name</label>
                         <div class="invalid-feedback">
                             Please enter a valid name!
                         </div>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-4">
                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email">
                         <label for="email" class="form-label">Email</label>
                         <div class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-4">
                         <input id="password" type="password" class="form-control" name="password" placeholder="Password" minlength="8" pattern="(?=^.{1,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required autocomplete="new-password">
                         <label for="password">Password</label>
                         <div class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-4">
                         <input type="tel" class="form-control" name="phone_number" id="validationPhone" placeholder="Telephone"
                             pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)"
                             required>
@@ -83,8 +83,19 @@
                             Please enter a valid phone number!
                         </div>
                     </div>
+
+                    <div class="mb-4">
+                        <label for="validationPrice" class="form-label">Price for a Session</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">Rp</span>
+                            <input type="text" class="form-control" id="validationPrice" aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                            Please enter the right amount
+                        </div>
+                        </div>
+                    </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="validationSubjects" class="form-label">Subjects</label>
                         <select class="form-control selectpicker" id="validationSubjects" multiple data-actions-box="true" data-selected-text-format="count" required>
                             <option value="sd-ipa">SD - IPA</option>
@@ -108,15 +119,19 @@
                             <option value="sma-sosiologi">SMA - Sosiologi</option>
                             <option value="sma-ekonomi">SMA - Ekonomi</option>
                         </select>
+                        
                     </div>
-
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label class="form-label">Required files</label>
                         <input type="file" name="req_files" class="form-control" required>
                         <div class="invalid-feedback">
                             Please upload the required file!
                         </div>
                     </div>
+                </div>
+                <div class="form-floating mb-4">
+                    <textarea class="form-control" placeholder="Describe yourself" id="floatingDescribe" style="height: 150px"></textarea>
+                    <label for="floatingDescribe">Describe yourself</label>
                 </div>
                 <input type="hidden" name="role" value="mentor">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -125,7 +140,6 @@
                 <p class="fw-light fs-6 text-center">Already have an account? <a href="/login"
                         class="text-decoration-none">Login</a>
                 </p>
-                <input type="hidden" name="role" value="mentor">
             </form>
         </div>
     </section>
