@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/mentor-signup.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
 </head>
 
 <body>
@@ -83,6 +83,32 @@
                             Please enter a valid phone number!
                         </div>
                     </div>
+                    
+                    <div class="mb-3">
+                        <label for="validationSubjects" class="form-label">Subjects</label>
+                        <select class="form-control selectpicker" id="validationSubjects" multiple data-actions-box="true" data-selected-text-format="count" required>
+                            <option value="sd-ipa">SD - IPA</option>
+                            <option value="sd-ips">SD - IPS</option>
+                            <option value="sd-matematika">SD - Matematika</option>
+                            <option value="sd-inggris">SD - Bahasa Inggris</option>
+                            <option value="sd-indonesia">SD - Bahasa Indonesia</option>
+                            <option value="smp-ipa">SMP - IPA</option>
+                            <option value="smp-ips">SMP - IPS</option>
+                            <option value="smp-matematika">SMP - Matematika</option>
+                            <option value="smp-inggris">SMP - Bahasa Inggris</option>
+                            <option value="smp-indonesia">SMP - Bahasa Indonesia</option>
+                            <option value="sma-matematika">SMA - Matematika</option>
+                            <option value="sma-inggris">SMA - Bahasa Inggris</option>
+                            <option value="sma-indonesia">SMA - Bahasa Indonesia</option>
+                            <option value="sma-biologi">SMA - Biologi</option>
+                            <option value="sma-fisika">SMA - Fisika</option>
+                            <option value="sma-kimia">SMA - Kimia</option>
+                            <option value="sma-geografi">SMA - Geografi</option>
+                            <option value="sma-sejarah">SMA - Sejarah</option>
+                            <option value="sma-sosiologi">SMA - Sosiologi</option>
+                            <option value="sma-ekonomi">SMA - Ekonomi</option>
+                        </select>
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Required files</label>
@@ -103,12 +129,12 @@
             </form>
         </div>
     </section>
-
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
     <script src="js/profile-picture.js"></script>
     <script src="js/form-validation.js"></script>
 </body>

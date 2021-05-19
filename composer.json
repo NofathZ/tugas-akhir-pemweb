@@ -12,6 +12,7 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
+        "snapappointments/bootstrap-select": "^1.14.0-beta2",
         "spatie/laravel-permission": "^4.0"
     },
     "require-dev": {
