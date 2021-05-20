@@ -68,17 +68,17 @@ Route::prefix('admin')->group(function () {
     Route::get('/reject/{id}', [App\Http\Controllers\AdminController::class, 'rejectMentor'])->name('reject');
     Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
     Route::get('/tambah-voucher', function() {
-        return view('admin-tambah-voucher');
+        return view('mentor-setting');
+        // return view('layouts.mentor');
     });
 });
 
 Route::prefix('mentor')->group(function () {
     Route::get('/list-mentee', [App\Http\Controllers\MentorController::class, 'showMentees']);
     Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
-});
-
-Route::get('/detail-mentor', function() {
-    return view('mentee-detail-mentor');
+    Route::get('/setting', function() {
+        return view('mentor-setting');
+    });
 });
 
 Route::get('/detail-mentor', function() {
