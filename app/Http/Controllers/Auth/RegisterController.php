@@ -85,6 +85,7 @@ class RegisterController extends Controller
                 'price' => $data['price'],
                 'role' => $data['role'],
                 'req_files' => $data['req_files'],
+                'description' => $data['description'],
                 'verification_status' => 'Unverified'
                 ]);
             if(request()->hasFile('image')){

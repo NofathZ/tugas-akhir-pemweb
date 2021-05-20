@@ -130,7 +130,7 @@
                     </div>
                 </div>
                 <div class="form-floating mb-4">
-                    <textarea class="form-control" placeholder="Describe yourself" id="floatingDescribe" style="height: 150px"></textarea>
+                    <textarea class="form-control" placeholder="Describe yourself" name="description" id="floatingDescribe" style="height: 150px"></textarea>
                     <label for="floatingDescribe">Describe yourself</label>
                 </div>
                 <input type="hidden" name="role" value="mentor">

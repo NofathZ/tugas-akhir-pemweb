@@ -77,14 +77,7 @@ Route::prefix('mentor')->group(function () {
     Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
 });
 
-Route::get('/detail-mentor', function() {
-    return view('mentee-detail-mentor');
-});
-
-Route::get('/detail-mentor', function() {
-    return view('mentee-detail-mentor');
-});
-
-Route::get('/order', function() {
+Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
+Route::get('/order/{id}', function() {
     return view('mentee-order');
 });
