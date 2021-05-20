@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Models\Teaches;
 
 class RegisterController extends Controller
 {
@@ -33,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -81,8 +82,10 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'phone_number' => $data['phone_number'],
+                'price' => $data['price'],
                 'role' => $data['role'],
                 'req_files' => $data['req_files'],
+                'description' => $data['description'],
                 'verification_status' => 'Unverified'
                 ]);
             if(request()->hasFile('image')){
@@ -97,6 +100,12 @@ class RegisterController extends Controller
                 request()->file('req_files')->storeAs('registrations', $user->id . '/' . $filename, '');
                 $user->update(['req_files' => $filename]);
             } 
+            foreach($data['subjects'] as $subject){
+                $teaches = Teaches::create([
+                    'id_mentor' => $user->id,
+                    'id_course' => $subject
+                ]);
+            }
                 $user->assignRole('mentor');
         }
         elseif($data['role'] == 'mentee'){

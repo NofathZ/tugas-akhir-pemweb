@@ -12,8 +12,8 @@ class MentorController extends Controller
 {
     public function showMentees(){
         $id = Auth::id();
-        $mentees = DB::table('users')->whereIn('id', function($query){
-            $query->select('id_mentee')->from('schedules')->where('id_mentor', 2);
+        $mentees = DB::table('users')->whereIn('id', function($query) use($id){
+            $query->select('id_mentee')->from('schedules')->where('id_mentor', $id);
         })->get();
         return view('mentor-list-mentee')->with('mentees', $mentees);
     }

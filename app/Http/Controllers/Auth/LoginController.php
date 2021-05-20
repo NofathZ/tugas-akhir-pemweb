@@ -31,18 +31,6 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
-    // public function redirectTo() {
-    //     $role = Auth::user()->role; 
-    //     switch ($role) {
-    //       case 'admin':
-    //         return '/admin/list-mentor';
-    //         break;
-    //       default:
-    //         return '/home'; 
-    //       break;
-    //     }
-    //   }
-
     /**
      * Create a new controller instance.
      *
@@ -65,6 +53,7 @@ class LoginController extends Controller
     //     // Check status
         if (($request->user_type != $user->role && $user->role != 'admin') || ($user->role == 'mentor' && $user->verification_status != 'Verified')) {
             $this->logout($request);
+            return redirect('/login');
         }
         else{
           switch ($user->role){

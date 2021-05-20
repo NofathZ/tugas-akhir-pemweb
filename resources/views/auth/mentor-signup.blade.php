@@ -88,7 +88,7 @@
                         <label for="validationPrice" class="form-label">Price for a Session</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text" id="inputGroupPrepend">Rp</span>
-                            <input type="text" class="form-control" id="validationPrice" aria-describedby="inputGroupPrepend" required>
+                            <input type="text" class="form-control" name="price" id="validationPrice" aria-describedby="inputGroupPrepend" required>
                             <div class="invalid-feedback">
                             Please enter the right amount
                         </div>
@@ -97,40 +97,40 @@
                     
                     <div class="mb-4">
                         <label for="validationSubjects" class="form-label">Subjects</label>
-                        <select class="form-control selectpicker" id="validationSubjects" multiple data-actions-box="true" data-selected-text-format="count" required>
-                            <option value="sd-ipa">SD - IPA</option>
-                            <option value="sd-ips">SD - IPS</option>
-                            <option value="sd-matematika">SD - Matematika</option>
-                            <option value="sd-inggris">SD - Bahasa Inggris</option>
-                            <option value="sd-indonesia">SD - Bahasa Indonesia</option>
-                            <option value="smp-ipa">SMP - IPA</option>
-                            <option value="smp-ips">SMP - IPS</option>
-                            <option value="smp-matematika">SMP - Matematika</option>
-                            <option value="smp-inggris">SMP - Bahasa Inggris</option>
-                            <option value="smp-indonesia">SMP - Bahasa Indonesia</option>
-                            <option value="sma-matematika">SMA - Matematika</option>
-                            <option value="sma-inggris">SMA - Bahasa Inggris</option>
-                            <option value="sma-indonesia">SMA - Bahasa Indonesia</option>
-                            <option value="sma-biologi">SMA - Biologi</option>
-                            <option value="sma-fisika">SMA - Fisika</option>
-                            <option value="sma-kimia">SMA - Kimia</option>
-                            <option value="sma-geografi">SMA - Geografi</option>
-                            <option value="sma-sejarah">SMA - Sejarah</option>
-                            <option value="sma-sosiologi">SMA - Sosiologi</option>
-                            <option value="sma-ekonomi">SMA - Ekonomi</option>
+                        <select class="form-control selectpicker" name="subjects[]" id="validationSubjects" multiple data-actions-box="true" data-selected-text-format="count" required>
+                            <option value="1">SD - Matematika</option>
+                            <option value="2">SD - IPA</option>
+                            <option value="3">SD - IPS</option>
+                            <option value="4">SD - Bahasa Inggris</option>
+                            <option value="5">SD - Bahasa Indonesia</option>
+                            <option value="6">SMP - Matematika</option>
+                            <option value="7">SMP - IPA</option>
+                            <option value="8">SMP - IPS</option>
+                            <option value="9">SMP - Bahasa Inggris</option>
+                            <option value="10">SMP - Bahasa Indonesia</option>
+                            <option value="11">SMA - Matematika</option>
+                            <option value="12">SMA - Biologi</option>
+                            <option value="13">SMA - Fisika</option>
+                            <option value="14">SMA - Kimia</option>
+                            <option value="15">SMA - Geografi</option>
+                            <option value="16">SMA - Sejarah</option>
+                            <option value="17">SMA - Sosiologi</option>
+                            <option value="18">SMA - Ekonomi</option>
+                            <option value="19">SMA - Bahasa Inggris</option>
+                            <option value="20">SMA - Bahasa Indonesia</option>
                         </select>
                         
                     </div>
                     <div class="mb-4">
                         <label class="form-label">Required files</label>
-                        <input type="file" name="req_files" class="form-control" required>
+                        <input type="file" name="req_files" class="form-control" accept=".zip,.rar,.7zip" required>
                         <div class="invalid-feedback">
                             Please upload the required file!
                         </div>
                     </div>
                 </div>
                 <div class="form-floating mb-4">
-                    <textarea class="form-control" placeholder="Describe yourself" id="floatingDescribe" style="height: 150px"></textarea>
+                    <textarea class="form-control" placeholder="Describe yourself" name="description" id="floatingDescribe" style="height: 150px"></textarea>
                     <label for="floatingDescribe">Describe yourself</label>
                 </div>
                 <input type="hidden" name="role" value="mentor">

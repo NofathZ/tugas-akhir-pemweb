@@ -21,9 +21,11 @@ class CreateUsersTable extends Migration
             $table->string("phone_number")->nullable();
             $table->string("role")->nullable();
             $table->string("image")->nullable();
-            $table->decimal("money")->nullable();
+            $table->integer("money")->nullable();
             $table->string("req_files")->nullable();
+            $table->integer("price")->nullable();
             $table->string("verification_status")->nullable();
+            $table->longtext("description")->nullable();
 
             
             $table->timestamp('email_verified_at')->nullable();
