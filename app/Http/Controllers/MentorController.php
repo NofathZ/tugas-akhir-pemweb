@@ -23,6 +23,10 @@ class MentorController extends Controller
         return view('mentor-detail-mentee')->with('info', $info);
     }
 
+    public function setting(){
+        return view('mentor-setting');
+    }
+
     public function showSchedule(){
 
     }
