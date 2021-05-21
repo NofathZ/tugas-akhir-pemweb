@@ -95,9 +95,9 @@ class RegisterController extends Controller
                 $user->update(['image' => $filename]);
             } 
             if(request()->hasFile('req_files')){
-                // $files = request()->file('req_files')->getClientOriginalName();
-                $filename = 'registration-'. $user->role .'-'. $user->id;
-                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $filename, '');
+                $files = request()->file('req_files')->getClientOriginalName();
+                // $filename = 'registration-'. $user->role .'-'. $user->id;
+                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $files, '');
                 $user->update(['req_files' => $filename]);
             } 
             foreach($data['subjects'] as $subject){

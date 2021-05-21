@@ -75,9 +75,11 @@ Route::prefix('admin')->group(function () {
 Route::prefix('mentor')->group(function () {
     Route::get('/list-mentee', [App\Http\Controllers\MentorController::class, 'showMentees']);
     Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
+    Route::get('/setting', function() {
+        return view('mentor-setting');
+    });
 });
 
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
-Route::get('/order/{id}', function() {
-    return view('mentee-order');
-});
+Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOrder']);
+Route::get('/order', [App\Http\Controllers\MenteeController::class, 'order'])->name('order');
