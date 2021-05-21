@@ -11,41 +11,37 @@
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
-  {{-- <link rel="stylesheet" href="assets/libexfile/nucleo/css/nucleo.css" type="text/css"> --}}
-  {{-- <link rel="stylesheet" href="assets/libexfile/@fortawesome/fontawesome-free/css/all.min.css" type="text/css"> --}}
-  <!-- Page plugins -->
-  <!-- Argon CSS -->
-  {{-- !! <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css"> --}}
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Sidenav -->
-  
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
           <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
-                {{-- <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-search"></i></span>
-                </div>
-                <input class="form-control" placeholder="Search" type="text"> --}}
-                <div class="header bg-primary">
+                <div class="header bg-default">
                   <div class="container-fluid">
                     <div class="header-body">
-                      <div class="row align-items-center py-4">
+                      <div class="row align-items-center py-2">
                         <div class="col-lg-6 col-7">
-                          <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+                          <h6 class="h2 text-white">Default</h6>
                         </div>
                       </div>
                     </div>
@@ -125,44 +121,6 @@
             </li>
           </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-            {{-- <li class="nav-item dropdown">
-              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="media align-items-center">
-                  <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="{{ asset('img/theme/team-4.jpg') }}">
-                  </span>
-                  <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
-                  </div>
-                </div>
-              </a>
-              <div class="dropdown-menu  dropdown-menu-right ">
-                <div class="dropdown-header noti-title">
-                  <h6 class="text-overflow m-0">Welcome!</h6>
-                </div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-single-02"></i>
-                  <span>My profile</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Settings</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-calendar-grid-58"></i>
-                  <span>Activity</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-support-16"></i>
-                  <span>Support</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                  <span>Logout</span>
-                </a>
-              </div>
-            </li> --}}
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
@@ -175,72 +133,38 @@
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 @endif
-            @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name}}
-                    </a>
+                @else
+                  <li class="nav-item dropdown">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name}}
+                      </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                          </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                          </form>
+                      </div>
+                  </li>
             @endguest
           </ul>
         </div>
       </div>
     </nav>
-    <!-- Header -->
-    <!-- Header -->
-    {{-- <div class="header bg-primary">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Default</li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-          <!-- Card stats -->
-        </div>
-      </div>
-    </div> --}}
     <!-- Page content -->
     <div class="container-fluid mt-4">
       @yield('content')
     </div>
   </div>
-  <!-- Argon Scripts -->
-  <!-- Core -->
-  {{-- <script src="assets/libexfile/jquery/dist/jquery.min.js"></script> --}}
   <script src="{{ asset('libexfile/jquery/dist/jquery.min.js') }}"></script>
-  {{-- !! <script src="assets/libexfile/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
   <script src="{{ asset('libexfile/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-  {{-- <script src="assets/libexfile/js-cookie/js.cookie.js"></script> --}}
   <script src="{{ asset('libexfile/js-cookie/js.cookie.js') }}"></script>
-  {{-- <script src="assets/libexfile/jquery.scrollbar/jquery.scrollbar.min.js"></script> --}}
   <script src="{{ asset('libexfile/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
-  {{-- <script src="assets/libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script> --}}
   <script src="{{ asset('libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-  <!-- Optional JS -->
-  {{-- <script src="assets/libexfile/chart.js/dist/Chart.min.js"></script> --}}
-  {{-- <script src="assets/libexfile/chart.js/dist/Chart.extension.js"></script> --}}
-  <!-- Argon JS -->
-  {{-- !! <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script> --}}
 </body>
-
 </html>

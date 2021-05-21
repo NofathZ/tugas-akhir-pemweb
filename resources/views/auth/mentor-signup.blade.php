@@ -47,7 +47,7 @@
                         <div class="picture-container">
                             <div class="picture">
                                 <img src="img/user-circle-solid.svg" class="picture-src" id="profilePreview">
-                                <input type="file" name="image" id="imageUpload" accept="image/*">
+                                <input type="file" name="image" id="imageUpload" accept="image/*" required>
                             </div>
                         </div>
                     </div>
@@ -130,8 +130,11 @@
                     </div>
                 </div>
                 <div class="form-floating mb-4">
-                    <textarea class="form-control" placeholder="Describe yourself" name="description" id="floatingDescribe" style="height: 150px"></textarea>
+                    <textarea class="form-control" placeholder="Describe yourself" name="description" id="floatingDescribe" style="height: 150px" required></textarea>
                     <label for="floatingDescribe">Describe yourself</label>
+                    <div class="invalid-feedback">
+                        Please describe yourself!
+                    </div>
                 </div>
                 <input type="hidden" name="role" value="mentor">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
