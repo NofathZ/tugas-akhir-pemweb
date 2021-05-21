@@ -68,7 +68,7 @@
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
@@ -201,11 +201,10 @@
       </div>
     </nav>
     <!-- Header -->
-    <!-- Header -->
-    <div class="header bg-primary">
+    <div class="header bg-default">
       <div class="container-fluid">
         <div class="header-body">
-          <div class="row align-items-center py-4">
+          <div class="row align-items-center py-2">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
