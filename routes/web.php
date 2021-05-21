@@ -68,7 +68,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/reject/{id}', [App\Http\Controllers\AdminController::class, 'rejectMentor'])->name('reject');
     Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
     Route::get('/tambah-voucher', function() {
-        return view('admin-tambah-voucher');
+        return view('mentor-setting');
+        // return view('layouts.mentor');
     });
 });
 

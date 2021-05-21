@@ -1,32 +1,23 @@
-@hasrole('mentor')
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
-  <!-- Favicon -->
-  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
-  {{-- <link rel="stylesheet" href="assets/libexfile/nucleo/css/nucleo.css" type="text/css"> --}}
-  {{-- <link rel="stylesheet" href="assets/libexfile/@fortawesome/fontawesome-free/css/all.min.css" type="text/css"> --}}
-  <!-- Page plugins -->
-  <!-- Argon CSS -->
-  {{-- !! <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css"> --}}
-
-  <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
-  <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajarin.id</title>
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
+    <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
 </head>
 
 <body>
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
@@ -177,9 +168,11 @@
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
                     <img alt="Image placeholder" src="{{ asset('storage/avatars/'.Auth::user()->id.'/'.Auth::user()->image) }}">
+                    {{-- <img alt="Image placeholder" src="{{ asset('img/theme/team-1.jpg')}}"> Pake ini untuk dummy data --}}
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name}}</span>
+                    {{-- <span class="mb-0 text-sm  font-weight-bold">Nofath</span> Pake ini untuk dummy data --}}
                   </div>
                 </div>
               </a>
@@ -233,24 +226,16 @@
       @yield('content')
     </div>
   </div>
-  <!-- Argon Scripts -->
-  <!-- Core -->
-  {{-- <script src="assets/libexfile/jquery/dist/jquery.min.js"></script> --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
   <script src="{{ asset('libexfile/jquery/dist/jquery.min.js') }}"></script>
-  {{-- !! <script src="assets/libexfile/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
-  <script src="{{ asset('libexfile/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-  {{-- <script src="assets/libexfile/js-cookie/js.cookie.js"></script> --}}
   <script src="{{ asset('libexfile/js-cookie/js.cookie.js') }}"></script>
-  {{-- <script src="assets/libexfile/jquery.scrollbar/jquery.scrollbar.min.js"></script> --}}
   <script src="{{ asset('libexfile/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
-  {{-- <script src="assets/libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script> --}}
   <script src="{{ asset('libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-  <!-- Optional JS -->
-  {{-- <script src="assets/libexfile/chart.js/dist/Chart.min.js"></script> --}}
-  {{-- <script src="assets/libexfile/chart.js/dist/Chart.extension.js"></script> --}}
-  <!-- Argon JS -->
-  {{-- !! <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script> --}}
+  <script src="{{ asset('js/form-validation.js') }}"></script>
 </body>
 
 </html>
-@endhasrole

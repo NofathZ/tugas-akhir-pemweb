@@ -11,7 +11,20 @@
         <h5><b>Name: </b>{{ $item->name }}</h5>
         <h5><b>Email: </b>{{ $item->email }}</h5>
         <h5><b>Phone Number: </b>{{ $item->phone_number }}</h5>
+        <h5><b>Harga : Rp. </b> {{ $item->price }} / hari</h5>
     </div>
+</div>
+
+<div class="mt-3">
+    <h1>Deskripsi</h1>
+    <p>{{ $item->description }}</p>
+</div>
+<div class="mt-3">
+    {{-- @foreach ($collection as $item)
+        
+    @endforeach --}}
+    <h1>Subjek</h1>
+    <p>Skill</p>
 </div>
 
 <h1 class="mt-3">File Lampiran</h1>
@@ -67,13 +80,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    function copyLink() {
-        document.querySelector('#copyLink').addEventListener('click', function() {
-            document.querySelector('#linkRegistration').select();
-            document.execCommand('copy');
-        })
-    }
-</script>
 @endsection
