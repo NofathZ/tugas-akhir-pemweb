@@ -82,6 +82,10 @@ Route::prefix('mentor')->group(function () {
     });
 });
 
+Route::prefix('mentee')->group(function(){
+    Route::get('/list-mentor', [App\Http\Controllers\MenteeController::class, 'showMentors']);
+});
+
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
 Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOrder']);
 Route::get('/order', [App\Http\Controllers\MenteeController::class, 'order'])->name('order');

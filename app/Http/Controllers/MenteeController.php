@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class MenteeController extends Controller
 {
+
+    public function showMentors(){
+        $id = Auth::id();
+        $mentors = DB::table('users')->whereIn('id', function($query) use($id){
+            $query->select('id_mentor')->from('schedules')->where('id_mentee', $id);
+        })->get();
+        return view('mentee-list-mentor')->with('mentors', $mentors);
+    }
+
     public function showOrder($id){
         $details = User::all()->where('id', $id);
         $subjects = DB::table('courses')->whereIn('id_course', function($query) use($id){
@@ -26,6 +35,7 @@ class MenteeController extends Controller
             'days' => $request->qty,
             'isValid' => True
         ]);
+        return redirect('/mentee/list_mentor');
     }
 
     public function redeem(){
