@@ -225,12 +225,13 @@
       @yield('content')
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> --}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
   <script src="{{ asset('libexfile/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('libexfile/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('libexfile/js-cookie/js.cookie.js') }}"></script>
   <script src="{{ asset('libexfile/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
   <script src="{{ asset('libexfile/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
