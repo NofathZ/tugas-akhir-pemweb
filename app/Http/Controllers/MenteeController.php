@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\Schedule;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Code;
 
 class MenteeController extends Controller
 {
@@ -39,7 +40,30 @@ class MenteeController extends Controller
         return redirect('/mentee/list-mentor');
     }
 
-    public function redeem(){
-        
+    public function redeem(Request $request){
+        $code = $request->id;
+        $check = Code::where('id_code', $code)->where('status', 'Available')->get();
+        $count = $check->count();
+        if($count == 0){
+            return redirect('/mentor/redeem-voucher');
+        }
+        elseif($count == 1){
+            $id = Auth::id();
+            $nominal = DB::table('codes')->where('id_code', $code)->select('nominal')->get()->all();
+            $money = DB::table('users')->where('id', $id)->select('money')->get()->all();
+            $nominal = json_decode(json_encode($nominal), true);
+            $money = json_decode(json_encode($money), true);
+            $money_update = $money[0]['money'] + $nominal[0]['nominal'];
+            User::where('id', $id)
+            ->update([
+                'money'=> $money_update
+            ]);
+            Code::where('id_code', $code)
+            ->update([
+                'status' => 'Unavailable'
+            ]);
+            return redirect('/home');
+        }
+
     }
 }

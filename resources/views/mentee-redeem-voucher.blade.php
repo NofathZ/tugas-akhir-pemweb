@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Redeem Voucher</h1>
-    <form action="{{ route('addcode') }}" method="POST">
+    <form action="{{ route('redeem-voucher') }}" method="POST">
     @csrf
         <div class="mb-3">
             <label for="idVoucher" class="form-label">Masukkan ID Voucher</label>
