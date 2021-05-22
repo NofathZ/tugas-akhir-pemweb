@@ -14,7 +14,8 @@ class Schedule extends Model
         'id_mentee',
         'id_course',
         'days',
-        'isValid'
+        'isValid',
+        'end_session'
     ];
 
     protected $table = 'schedules';

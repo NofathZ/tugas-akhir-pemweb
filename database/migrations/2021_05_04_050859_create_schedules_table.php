@@ -20,6 +20,7 @@ class CreateSchedulesTable extends Migration
             $table->integer("id_course")->references("id_course")->on("courses")->onDelete("cascade")->nullable("false");
             $table->integer("days")->nullable("false");
             $table->boolean("isValid")->nullable(); // add default value (True)
+            $table->boolean("end_session")->nullable();
             $table->timestamps();
         });
     }

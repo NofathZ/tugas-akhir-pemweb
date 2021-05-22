@@ -3,16 +3,22 @@
 @section('title', 'List Mentee')
 
 @section('content')
-@foreach ($mentees as $mentee)
+@foreach ($list as $item)
 <div class="card px-3 py-2">
     <div class="row">
         <div class="col-8 d-flex">
-            <img src="{{ asset('storage/avatars/'.$mentee->id.'/'.$mentee->image) }}" alt="profilPict" style="width: 10%">
-            <h1 class="pl-2">{{ $mentee->name }} </h1>
+            <img src="{{ asset('storage/avatars/'.$item->mentee_id.'/'.$item->image) }}" alt="profilPict" style="width: 10%">
+            <h1 class="pl-2">{{ $item->mentee_name }} </h1>
+            <h3 class="pl-2">({{ $item->course_name }} - {{ $item->degree }}) </h3>
         </div>
         <div class="col d-flex flex-row-reverse">
             <div class="d-flex align-items-center">
-                <a href="/mentor/detail-mentee/{{$mentee->id}}"><button class="btn btn-primary">Show Detail</button>
+                <form action="{{ route('detail-mentee') }}" method="POST">
+                @csrf
+                    <input type="hidden" name="id" value="{{ $item->schedule_id }}">
+                    <button class="btn btn-primary" type="submit"> Show Detail </button>
+                </form>
+                {{-- <a href="/mentor/detail-mentee/{{$item->mentee_id}}"><button class="btn btn-primary">Show Detail</button> --}}
             </div>
         </div>
     </div>

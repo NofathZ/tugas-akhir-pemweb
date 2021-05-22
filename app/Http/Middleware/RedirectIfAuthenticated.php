@@ -31,7 +31,7 @@ class RedirectIfAuthenticated
                     case 'mentor':
                         return redirect('/mentor/list-mentee');
                         break;
-                    default:
+                    case 'mentee':
                         return redirect('/mentee/list-mentor'); 
                     break;
                 }

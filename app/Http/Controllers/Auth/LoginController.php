@@ -63,8 +63,8 @@ class LoginController extends Controller
             case 'mentor':
               return redirect('/mentor/list-mentee');
               break;
-            default:
-              return redirect('/home'); 
+            case 'mentee':
+              return redirect('/mentee/list-mentor'); 
             break;
           }
         }

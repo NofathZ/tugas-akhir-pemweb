@@ -3,20 +3,67 @@
 @section('title', 'Detail Mentee')
 
 @section('content')
-@foreach($info as $item)
-<div class="card p-3">
+{{-- <div class="card p-3">
     <div class="d-flex align-items-end">
+        @foreach($info as $item)
         <img src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" class="img-thumbnail" alt="picture" style="width: 15%">
+        @endforeach
         <div>
-            <button class="btn btn-primary ml-2">Chat</button>
+            @foreach ($schedule as $sched)
+            @if ($sched->end_session == 1)
+            <h5>(Permintaan pengakhiran sesi telah terkirim)</h5>
+            @else
+            <form action="{{ '/mentor/stop-session' }}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{ $item->id }}">
+                @foreach ($subject as $s)
+                <input type="hidden" name="subject" value="{{ $s->id_course }}">
+                @endforeach
+                <button class="btn btn-primary ml-2" type="submit">Akhiri sesi</button>
+            </form>
+            @endif
+            @endforeach
         </div>
     </div>
 </div>
 
 <div class="card p-3">
-    <h1>{{ $item->name }}</h1>
-    <h1>{{ $item->email }}</h1>
-    <h1>{{ $item->phone_number }}</h1>
+@foreach ($info as $item)
+    @foreach ($subject as $s)
+    <h1>Nama</h1>{{ $item->name }}
+    <h1>Email</h1>{{ $item->email }}
+    <h1>Nomor</h1>{{ $item->phone_number }}
+    <h1>Pelajaran</h1>
+        {{ $s->name }} - {{ $s->degree }}
+    @endforeach
+</div>
+@endforeach --}}
+
+<div class="card p-3">
+    <div class="d-flex align-items-end">
+        @foreach($list as $item)
+        <img src="{{ asset('storage/avatars/'.$item->mentee_id.'/'.$item->image) }}" class="img-thumbnail" alt="picture" style="width: 15%">
+        <div>
+            @if ($item->end_session == 1)
+            <h5>(Permintaan pengakhiran sesi telah terkirim)</h5>
+            @else
+            <form action="{{ '/mentor/stop-session' }}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{ $item->mentee_id }}">
+                <input type="hidden" name="subject" value="{{ $item->course_id }}">
+                <button class="btn btn-primary ml-2" type="submit">Akhiri sesi</button>
+            </form>
+            @endif
+        </div>
+    </div>
+</div>
+
+<div class="card p-3">
+    <h1>Nama</h1>{{ $item->mentee_name }}
+    <h1>Email</h1>{{ $item->email }}
+    <h1>Nomor</h1>{{ $item->phone_number }}
+    <h1>Pelajaran</h1>
+        {{ $item->course_name }} - {{ $item->degree }}
 </div>
 @endforeach
 

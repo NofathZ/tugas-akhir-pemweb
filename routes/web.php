@@ -74,12 +74,12 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('mentor')->group(function () {
     Route::get('/list-mentee', [App\Http\Controllers\MentorController::class, 'showMentees']);
-    Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
+    // Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
+    Route::post('/detail-mentee/', [App\Http\Controllers\MentorController::class, 'showMenteeInfo'])->name('detail-mentee');
     Route::get('/setting',  [App\Http\Controllers\MentorController::class, 'setting']);
     Route::get('/update',  [App\Http\Controllers\MentorController::class, 'updateInfo'])->name('update-info-mentor');
-    Route::get('/stop-session', function() {
-        return view('mentor-stop-session');
-    });
+    Route::post('/stop-session', [App\Http\Controllers\MentorController::class, 'showEndSession']);
+    Route::post('/request-end-session', [App\Http\Controllers\MentorController::class, 'requestEndSession'])->name('request-end-session');
 });
 
 Route::prefix('mentee')->group(function(){

@@ -14,7 +14,7 @@ class MenteeController extends Controller
     public function showMentors(){
         $id = Auth::id();
         $mentors = DB::table('users')->whereIn('id', function($query) use($id){
-            $query->select('id_mentor')->from('schedules')->where('id_mentee', $id);
+            $query->select('id_mentor')->from('schedules')->where('id_mentee', $id)->where('isValid', 1);
         })->get();
         return view('mentee-list-mentor')->with('mentors', $mentors);
     }
@@ -32,10 +32,11 @@ class MenteeController extends Controller
         $schedule = Schedule::create([
             'id_mentor' => $request->id,
             'id_mentee' => Auth::id(),
+            'id_course' => $request->subject,
             'days' => $request->qty,
             'isValid' => True
         ]);
-        return redirect('/mentee/list_mentor');
+        return redirect('/mentee/list-mentor');
     }
 
     public function redeem(){
