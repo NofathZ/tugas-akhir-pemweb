@@ -97,3 +97,6 @@ Route::get('/redeem-voucher', function() {
 Route::get('/confirm-stop-session', function() {
     return view('mentee-verification-stop-session');
 });
+Route::get('/detail', function() {
+    return view('mentee-detail-mentor');
+});
