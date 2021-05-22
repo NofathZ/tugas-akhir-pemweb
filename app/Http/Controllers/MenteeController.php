@@ -14,10 +14,42 @@ class MenteeController extends Controller
 
     public function showMentors(){
         $id = Auth::id();
-        $mentors = DB::table('users')->whereIn('id', function($query) use($id){
-            $query->select('id_mentor')->from('schedules')->where('id_mentee', $id)->where('isValid', 1);
-        })->get();
-        return view('mentee-list-mentor')->with('mentors', $mentors);
+        $list = DB::table('schedules')
+        ->join('users', 'schedules.id_mentor', '=', 'users.id')
+        ->join('courses', 'schedules.id_course', '=', 'courses.id_course')
+        ->select(
+            'users.id as mentor_id',
+            'schedules.id as schedule_id',
+            'users.name as mentor_name',
+            'image',
+            'courses.name as course_name',
+            'degree'
+            )
+        ->where('id_mentee', $id)
+        ->get();
+        return view('mentee-list-mentor')->with('list', $list);
+    }
+
+    public function showMentorInfo(Request $request){
+        $schedule_id = $request->id;
+        $list = DB::table('schedules')
+        ->join('users', 'schedules.id_mentor', '=', 'users.id')
+        ->join('courses', 'schedules.id_course', '=', 'courses.id_course')
+        ->select(
+            'users.id as mentor_id',
+            'image',
+            'end_session',
+            'courses.id_course as course_id',
+            'users.name as mentor_name',
+            'email',
+            'phone_number',
+            'courses.name as course_name',
+            'degree',
+            'days'
+        )
+        ->where('schedules.id', $schedule_id)
+        ->get(); 
+        return view('mentee-detail-mentor')->with('list', $list);
     }
 
     public function showOrder($id){

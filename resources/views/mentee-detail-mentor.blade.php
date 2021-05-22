@@ -2,17 +2,17 @@
 
 @section('content')
 <div class="container">
-    @foreach($details as $item)
+    @foreach($list as $item)
     <center>
-        <img class="rounded img-thumbnail" src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" alt="profilPict">
+        <img class="rounded img-thumbnail" src="{{ asset('storage/avatars/'.$item->mentor_id.'/'.$item->image) }}" alt="profilPict">
     </center>
     <center>
-        <h1>{{ $item->name }}</h1>
+        <h1>{{ $item->mentor_name }}</h1>
     </center>
     <div>
         <div class="card rounded py-3 px-3" style="background-color: rgb(229 231 235);">
-            <span class="pb-3">Pelajaran Yang dipesan : Matematika - SD</span>
-            <span>Jumlah Hari : 10</span>
+            <span class="pb-3">Pelajaran Yang dipesan : {{ $item->course_name }}</span>
+            <span>Jumlah Hari : {{ $item->days }}</span>
         </div>
     </div>
     <div>

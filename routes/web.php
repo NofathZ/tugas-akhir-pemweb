@@ -89,6 +89,7 @@ Route::prefix('mentee')->group(function(){
     });
     Route::post('/redeem', [App\Http\Controllers\MenteeController::class, 'redeem'])->name('redeem-voucher');
     Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOrder']);
+    Route::post('/detail-mentor', [App\Http\Controllers\MenteeController::class, 'showMentorInfo']);
 });
 
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
