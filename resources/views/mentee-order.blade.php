@@ -14,7 +14,7 @@
     <center>
         <p>Sebelum memesan, baca terlebih dahulu <a href="">Syarat dan Ketentuan</a> yang berlaku</p>
     </center>
-    <form method="POST" action="{{ route('order') }}">
+    <form method="GET" action="{{ route('order') }}">
         <div class="mb-3">
             <label>Pilihan pelajaran</label><br>
             <input type="hidden" name="id" value="{{ $item->id }}">
