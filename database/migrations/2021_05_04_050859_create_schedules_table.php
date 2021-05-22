@@ -18,8 +18,7 @@ class CreateSchedulesTable extends Migration
             $table->integer("id_mentor")->references("id")->on("users")->onDelete("cascade")->nullable("false");
             $table->integer("id_mentee")->references("id")->on("users")->onDelete("cascade")->nullable("false");
             $table->integer("id_course")->references("id_course")->on("courses")->onDelete("cascade")->nullable("false");
-            $table->dateTime("start_at")->nullable();
-            $table->dateTime("end_at")->nullable();
+            $table->integer("days")->nullable("false");
             $table->boolean("isValid")->nullable(); // add default value (True)
             $table->timestamps();
         });

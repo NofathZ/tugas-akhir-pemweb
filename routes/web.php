@@ -76,6 +76,7 @@ Route::prefix('mentor')->group(function () {
     Route::get('/list-mentee', [App\Http\Controllers\MentorController::class, 'showMentees']);
     Route::get('/detail-mentee/{id}', [App\Http\Controllers\MentorController::class, 'showMenteeInfo']);
     Route::get('/setting',  [App\Http\Controllers\MentorController::class, 'setting']);
+    Route::get('/update',  [App\Http\Controllers\MentorController::class, 'updateInfo'])->name('update-info-mentor');
 });
 
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);

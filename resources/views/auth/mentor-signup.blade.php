@@ -47,7 +47,7 @@
                         <div class="picture-container">
                             <div class="picture">
                                 <img src="img/user-circle-solid.svg" class="picture-src" id="profilePreview">
-                                <input type="file" name="image" id="imageUpload" accept="image/*" required>
+                                <input type="file" name="image" id="imageUpload" accept="image/*">
                             </div>
                         </div>
                     </div>

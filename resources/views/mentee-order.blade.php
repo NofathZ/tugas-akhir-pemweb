@@ -17,6 +17,7 @@
     <form method="POST" action="{{ route('order') }}">
         <div class="mb-3">
             <label>Pilihan pelajaran</label><br>
+            <input type="hidden" name="id" value="{{ $item->id }}">
             @foreach($subjects as $subject)
             <input type="radio" name="subject" id="{{ $subject->name }} - {{ $subject->degree }}" value="{{ $subject->id_course }}">
             <label for="{{ $subject->name }} - {{ $subject->degree }}">{{ $subject->name }} - {{ $subject->degree }}</label><br>

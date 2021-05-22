@@ -26,10 +26,13 @@ class RedirectIfAuthenticated
                 $role = Auth::user()->role; 
                 switch ($role) {
                     case 'admin':
-                    return '/admin/list-mentor';
-                    break;
+                        return redirect('/admin/list-mentor');
+                        break;
+                    case 'mentor':
+                        return redirect('/mentor/list-mentee');
+                        break;
                     default:
-                    return '/home'; 
+                        return redirect('/home'); 
                     break;
                 }
             }

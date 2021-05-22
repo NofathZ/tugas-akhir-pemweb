@@ -89,15 +89,15 @@ class RegisterController extends Controller
                 'verification_status' => 'Unverified'
                 ]);
             if(request()->hasFile('image')){
-                // $avatar = request()->file('image')->getClientOriginalName();
-                $filename = $user->role .'-'. $user->id;
+                $extension = request()->file('image')->extension();
+                $filename = $user->role .'-'. $user->id . $extension;
                 request()->file('image')->storeAs('avatars', $user->id . '/' . $filename, '');
                 $user->update(['image' => $filename]);
             } 
             if(request()->hasFile('req_files')){
-                $files = request()->file('req_files')->getClientOriginalName();
-                // $filename = 'registration-'. $user->role .'-'. $user->id;
-                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $files, '');
+                $extension = request()->file('req_files')->extension();
+                $filename = 'registration-'. $user->role .'-'. $user->id . $extension;
+                request()->file('req_files')->storeAs('registrations', $user->id . '/' . $filename, '');
                 $user->update(['req_files' => $filename]);
             } 
             foreach($data['subjects'] as $subject){
@@ -118,8 +118,8 @@ class RegisterController extends Controller
                 'money' => 0
                 ]);
             if(request()->hasFile('image')){
-                // $avatar = request()->file('image')->getClientOriginalName();
-                $filename = $user->role .'-'. $user->id;
+                $extension = request()->file('image')->extension();
+                $filename = $user->role .'-'. $user->id . $extension;
                 request()->file('image')->storeAs('avatars', $user->id . '/' . $filename, '');
                 $user->update(['image' => $filename]);
             } 
@@ -131,15 +131,9 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
-
-        if ($response = $this->registered($request, $user)) {
-            return $response;
-        }
-
-        return $request->wantsJson()
-                    ? new JsonResponse([], 201)
-                    : redirect($this->redirectPath());
+        // $this->guard()->login($user);
+        return $this->registered($request, $user)
+                            ?: redirect($this->redirectPath());
     }
 }
