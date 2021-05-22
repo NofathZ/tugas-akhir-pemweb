@@ -11,7 +11,7 @@
         <h5><b>Name: </b>{{ $item->name }}</h5>
         <h5><b>Email: </b>{{ $item->email }}</h5>
         <h5><b>Phone Number: </b>{{ $item->phone_number }}</h5>
-        <h5><b>Harga : Rp. </b> {{ $item->price }} / hari</h5>
+        <h5><b>Harga : Rp. </b> {{ number_format($item->price, $decimals = 0, $decimal_separator=",", $thousand_separator = ".") }} / hari</h5>
     </div>
 </div>
 
@@ -20,11 +20,10 @@
     <p>{{ $item->description }}</p>
 </div>
 <div class="mt-3">
-    {{-- @foreach ($collection as $item)
-        
-    @endforeach --}}
     <h1>Subjek</h1>
-    <p>Skill</p>
+    @foreach ($subjects as $subject)
+        <h5>{{ $subject->name }} - {{ $subject->degree }}</h5>
+    @endforeach
 </div>
 
 <h1 class="mt-3">File Lampiran</h1>

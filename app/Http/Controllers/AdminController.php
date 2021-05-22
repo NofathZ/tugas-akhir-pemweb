@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Code;
+use Illuminate\Support\Facades\DB;
+
 
 class AdminController extends Controller
 {
@@ -20,7 +22,10 @@ class AdminController extends Controller
     
     public function showMentorInfo($id){
         $info = User::all()->where('id', $id);
-        return view('admin-verifikasi-mentor')->with('info', $info);
+        $subjects = DB::table('courses')->whereIn('id_course', function($query) use($id){
+            $query->select('id_course')->from('teaches')->where('id_mentor', $id);
+        })->get();
+        return view('admin-verifikasi-mentor')->with('info', $info)->with('subjects', $subjects);
     }
     
     public function verifyMentor($id){
