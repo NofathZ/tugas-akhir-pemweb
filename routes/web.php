@@ -88,10 +88,10 @@ Route::prefix('mentee')->group(function(){
         return view('mentee-redeem-voucher');
     });
     Route::post('/redeem', [App\Http\Controllers\MenteeController::class, 'redeem'])->name('redeem-voucher');
+    Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOrder']);
 });
 
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
-Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOrder']);
 Route::get('/order', [App\Http\Controllers\MenteeController::class, 'order'])->name('order');
 
 

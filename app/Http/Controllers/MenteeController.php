@@ -30,14 +30,34 @@ class MenteeController extends Controller
     }
 
     public function order(Request $request){
-        $schedule = Schedule::create([
-            'id_mentor' => $request->id,
-            'id_mentee' => Auth::id(),
-            'id_course' => $request->subject,
-            'days' => $request->qty,
-            'isValid' => True
-        ]);
-        return redirect('/mentee/list-mentor');
+        $id_mentee = Auth::id();
+        $id_mentor = $request->id;
+        $price = DB::table('users')->where('id', $id_mentor)->select('price')->get()->all();
+        $money = DB::table('users')->where('id', $id_mentee)->select('money')->get()->all();
+        $price = json_decode(json_encode($price), true)[0]['price'];
+        $money = json_decode(json_encode($money), true)[0]['money'];
+        $qty = $request->qty;
+        $cost = $price * $qty;
+        // var_dump($money);
+        // var_dump($cost);
+        if($money < $cost){
+            return redirect('/mentee/order/'. $id_mentor);
+        }
+        else{
+            Schedule::create([
+                'id_mentor' => $request->id,
+                'id_mentee' => Auth::id(),
+                'id_course' => $request->subject,
+                'days' => $request->qty,
+                'isValid' => True
+            ]);
+            User::where('id', $id_mentee)
+            ->update([
+                'money'=> $money-$cost
+            ]);
+            return redirect('/mentee/list-mentor');
+
+        }
     }
 
     public function redeem(Request $request){
