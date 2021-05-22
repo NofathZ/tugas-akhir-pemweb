@@ -99,3 +99,6 @@ Route::get('/order', [App\Http\Controllers\MenteeController::class, 'order'])->n
 Route::get('/confirm-stop-session', function() {
     return view('mentee-verification-stop-session');
 });
+Route::get('/detail', function() {
+    return view('mentee-detail-mentor');
+});

@@ -1,66 +1,48 @@
 @extends('layouts.mentee')
 
 @section('content')
-    <div class="row">
-        @foreach($details as $item)
-        <div class="col-lg-2">
-            <img class="rounded img-thumbnail" src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" alt="profilPict">
-        </div>
-        <div class="col-lg-6">
-            {{-- <h1>{{ $item['info']->name }}</h1> --}}
-            <h1>{{ $item->name }}</h1>
-            <div class="skill d-flex flex-nowrap">
-                @foreach($subjects as $subject)
-                <span class="py-1 px-2 mr-1 card">{{ $subject->name }} - {{ $subject->degree }}</span>
-                @endforeach
-            </div>
-        </div>
-        <div class="col-lg">
-            <div class="card rounded p-3" style="background-color: rgb(229 231 235);">
-                <p>Mentorship Program</p>
-                <h1>Rp {{ number_format($item->price, $decimals = 0, $decimal_separator=",", $thousand_separator = ".") }} /pertemuan</h1>
-                <br>
-
-                <section style="line-height: 0.5rem">
-                    <p>Tugas dan pembahasan di tiap pertemuan</p>
-                    <p>Pemberian modul pelajaran setiap sebelum pertemuan</p>
-                    <p>Chat via Whatsapp/LINE/Telegram</p>
-                </section>
-
-                <a href="/order/{{ $item->id }}"><button class="btn btn-primary">Reach Out</button></a>
-            </div>
-        </div>
-        <div class="w-100"></div>
-        <div class="col-lg-8 description">
-            <section>
-                {{ $item->description}}
-            </section>
-            @endforeach
+<div class="container">
+    @foreach($details as $item)
+    <center>
+        <img class="rounded img-thumbnail" src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" alt="profilPict">
+    </center>
+    <center>
+        <h1>{{ $item->name }}</h1>
+    </center>
+    <div>
+        <div class="card rounded py-3 px-3" style="background-color: rgb(229 231 235);">
+            <span class="pb-3">Pelajaran Yang dipesan : Matematika - SD</span>
+            <span>Jumlah Hari : 10</span>
         </div>
     </div>
+    <div>
+        <button class="btn btn-danger disabled" data-toggle="modal" data-target="#exampleModal" style="float: right">Konfirmasi Penghentian Session</button> {{-- ini if else in aja --}}
+        <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="float: right">Konfirmasi Penghentian Session</button> {{-- ini if else in aja --}}
+    </div>
+    @endforeach
+</div>
 
-    <style>
-        .box {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: black;
-            border: 2px solid red
-        }
-        .img-thumbnail {
-            width: 200px;
-        }
-        
-        .description {
-            line-height: 1.6rem;
-        }
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            </div>
+            <div class="modal-body">Apakah anda yakin ingin konfirmasi penghentian session?</div>
+            <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Konfirmasi') }}</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        .spot-left {
-            float: left;
-        }
-
-        .skill span{
-            background-color: #f3f4f6;
-        }
-    </style>
+<style>
+    .img-thumbnail {
+        width: 200px;
+    }
+</style>
 @endsection

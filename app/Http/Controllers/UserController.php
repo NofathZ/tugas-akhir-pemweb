@@ -16,6 +16,6 @@ class UserController extends Controller
             $query->select('id_course')->from('teaches')->where('id_mentor', $id);
         })->get();
         // return view('mentee-detail-mentor')->with('data', ['details' => $details, 'subjects' => $subjects]);
-        return view('mentee-detail-mentor')->with('details', $details)->with('subjects', $subjects);
+        return view('detail-mentor')->with('details', $details)->with('subjects', $subjects);
     }
 }
