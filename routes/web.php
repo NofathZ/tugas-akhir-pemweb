@@ -84,6 +84,10 @@ Route::prefix('mentor')->group(function () {
 
 Route::prefix('mentee')->group(function(){
     Route::get('/list-mentor', [App\Http\Controllers\MenteeController::class, 'showMentors']);
+    Route::get('/redeem-voucher', function() {
+        return view('mentee-redeem-voucher');
+    });
+    Route::post('/redeem', [App\Http\Controllers\MenteeController::class, 'redeem'])->name('redeem-voucher');
 });
 
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
@@ -91,9 +95,7 @@ Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOr
 Route::get('/order', [App\Http\Controllers\MenteeController::class, 'order'])->name('order');
 
 
-Route::get('/redeem-voucher', function() {
-    return view('mentee-redeem-voucher');
-});
+
 Route::get('/confirm-stop-session', function() {
     return view('mentee-verification-stop-session');
 });
