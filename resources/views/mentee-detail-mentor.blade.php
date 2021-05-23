@@ -1,7 +1,7 @@
 @extends('layouts.mentee')
 
 @section('content')
-<div class="container">
+<div class="container py-5">
     @foreach($list as $item)
     <center>
         <img class="rounded img-thumbnail" src="{{ asset('storage/avatars/'.$item->mentor_id.'/'.$item->image) }}" alt="profilPict">

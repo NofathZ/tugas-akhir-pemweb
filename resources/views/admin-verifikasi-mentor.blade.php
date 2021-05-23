@@ -6,7 +6,8 @@
 
 <div class="d-flex">
     @foreach($info as $item)
-    <img src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" class="img-thumbnail" alt="picture" style="width: 15%">
+    {{-- <img src="{{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}" class="img-thumbnail" alt="picture" style="width: 300px; height: auto;"> --}}
+    <div style="width: 300px; height: 300px; background-size: cover; background-position: center; background-image: url({{ asset('storage/avatars/'.$item->id.'/'.$item->image) }}")"></div>
     <div class="pl-2 pt-1">
         <h5><b>Name: </b>{{ $item->name }}</h5>
         <h5><b>Email: </b>{{ $item->email }}</h5>

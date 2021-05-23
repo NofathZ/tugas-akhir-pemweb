@@ -1,6 +1,7 @@
 @extends('layouts.mentee')
 
 @section('content')
+<div class="p-5">
     <div class="row pb-3">
         @foreach ($details as $item)
         <div class="col-lg-2">
@@ -33,5 +34,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
     @endforeach
 @endsection

@@ -92,8 +92,9 @@
                 <div class="card mb-3 mx-3">
                     <div class="row g-0">
                         <div class="col-3 rounded-3">
-                            <img src="{{ asset('storage/avatars/'.$mentor->id.'/'.$mentor->image) }}"
-                                class="p-2 border w-100">
+                            {{-- <img src="{{ asset('storage/avatars/'.$mentor->id.'/'.$mentor->image) }}"
+                                class="p-2 border w-100"> --}}
+                            <div style="width: 300px; height: 300px; background-size: cover; background-position: center; background-image: url({{ asset('storage/avatars/'.$mentor->id.'/'.$mentor->image) }}")"></div>
                         </div>
                         <div class="col-7 border">
                             <div class="card-body">

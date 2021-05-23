@@ -1,7 +1,7 @@
 @extends('layouts.mentee')
 
 @section('content')
-<div class="container">
+<div class="container py-5">
     <h1>Redeem Voucher</h1>
     <form action="{{ route('redeem-voucher') }}" method="POST">
     @csrf
