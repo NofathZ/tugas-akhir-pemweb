@@ -31,8 +31,20 @@
 			<nav id="navbar" class="navbar">
 				<ul>
 					<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-					<li><a class="nav-link" href="#">Login</a></li>
-					<li><a class="nav-link" href="#" role="button">Sign Up</a></li>
+					@guest
+					<li><a class="nav-link" href="/login">Login</a></li>
+					<li><a class="nav-link" href="/register#" role="button">Sign Up</a></li>
+					@else	
+					<li><a class="nav-link" href="{{ route('logout') }}"
+						onclick="event.preventDefault();
+										document.getElementById('logout-form').submit();">
+						{{ __('Logout') }}
+					</a>
+
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+						@csrf
+					</form></li>
+					@endguest
 
 				</ul>
 				<i class="bi bi-list mobile-nav-toggle"></i>
@@ -46,7 +58,7 @@
 		<div class="hero-container">
 			<h1>Belajar Ekslusif dengan Guru Privat Terbaik</h1>
 			<h2>Kami membantumu meraih prestasi di sekolahmu!</h2>
-			<a href="" class="btn-get-started scrollto">Find a mentor</a>
+			<a href="/search" class="btn-get-started scrollto">Find a mentor</a>
 		</div>
 	</section><!-- End Hero -->
 

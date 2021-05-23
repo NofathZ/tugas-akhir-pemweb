@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
                         return redirect('/mentor/list-mentee');
                         break;
                     case 'mentee':
-                        return redirect('/mentee/list-mentor'); 
+                        return redirect('/home'); 
                     break;
                 }
             }

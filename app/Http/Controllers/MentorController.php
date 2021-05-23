@@ -48,13 +48,6 @@ class MentorController extends Controller
         )
         ->where('schedules.id', $schedule_id)
         ->get(); 
-        // $id_mentor = Auth::id(); 
-        // $info = User::all()->where('id', $id);
-        // $subject = DB::table('courses')->whereIn('id_course', function($q) use($id, $id_mentor){
-        //     $q->select('id_course')->from('schedules')->where('id_mentee', $id)->where('id_mentor', $id_mentor);
-        // })->get();
-        // $schedule = Schedule::all()->where('id_mentor', $id_mentor)->where('id_mentee', $id);
-        // return view('mentor-detail-mentee')->with('info', $info)->with('subject', $subject)->with('schedule', $schedule);
         return view('mentor-detail-mentee')->with('list', $list);
     }
 

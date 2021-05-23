@@ -64,7 +64,7 @@ class LoginController extends Controller
               return redirect('/mentor/list-mentee');
               break;
             case 'mentee':
-              return redirect('/mentee/list-mentor'); 
+              return redirect('/home'); 
             break;
           }
         }
@@ -72,6 +72,6 @@ class LoginController extends Controller
 
     protected function loggedOut(Request $request)
     {
-        return redirect('/login');
+        return redirect('/home');
     }
 }

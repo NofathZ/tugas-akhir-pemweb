@@ -99,7 +99,7 @@
                             <div class="row">
                                 <div class="mt-5">
                                     <div class=" d-grid mx-2">
-                                        <button type="button" class="btn btn-primary  btn-lg">View Profile</button>
+                                        <a href="/detail-mentor/{{$mentor->id}}"><button type="button" class="btn btn-primary  btn-lg">View Profile</button></a>
                                     </div>
                                 </div>
                             </div>
