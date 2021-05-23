@@ -203,7 +203,7 @@
 					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 						<div class="member">
 							<div class="member-img">
-								<img src="https://lh3.google.com/u/1/d/1ttSX0ZmkhlyjEg-3PSy5yu2LekxBLGqn=w1920-h880-iv1"
+								<img src="https://lh6.googleusercontent.com/fW5suRCLmvNsWXrtUC2tN3bwOAewSLNixg5iqCCDEytJ6f8c81nDJ7fWOJv45KJVqWg-C91pBF0r4w=w1920-h937"
 									class="img-team w-100" alt="">
 								<div class="social">
 									<a href=""><i class="bi bi-twitter"></i></a>
