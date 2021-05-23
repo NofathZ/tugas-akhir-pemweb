@@ -23,8 +23,8 @@
   <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('css/login.css')}}">
-  <link rel="stylesheet" href="css/mentee-signup.css">
+  <link rel="stylesheet" href="{{asset('css/mentee-signup.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('css/login.css')}}"> --}}
 
   <style>
     body {

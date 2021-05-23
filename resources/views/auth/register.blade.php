@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -77,4 +77,46 @@
         crossorigin="anonymous"></script>
     <script src="js/signup.js"></script>
 </body>
-</html>
+</html> --}}
+
+
+@extends('layouts.authentification-navbar')
+
+@section('content')
+<section id="signup">
+    <div class="whitespace"></div>
+    <div class="text-center title-text">
+        <h6>We're glad you're here!</h6>
+        <p>First of all, what do you want to do?</p>
+    </div>
+    <div id="signup">
+        <div class="row flex-center-md">
+            <div class="col-md-2"></div>
+            <div class="col-md-3 border shadow p-5 mb-5 bg-body rounded-3">
+                <div class="panel panel-shadowed text-center">
+                    <div class="panel-body">
+                        <h5>I am looking for a mentor</h5>
+                        <p>Create a <b>mentee</b> account.</p><br>
+                        <div><a href="{{ route('mentee-register') }}" type="button" class="btn btn-primary btn-lg">Find a mentor</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2 p-5 align-self-center">
+                <div class="divider ">
+                    <p class="text-center fw-bold">OR</p>
+                </div>
+            </div>
+            <div class="col-md-3 border shadow p-5 mb-5 bg-body rounded-3">
+                <div class="panel panel-shadowed text-center">
+                    <div class="panel-body">
+                        <h5 class="text-heavy">I want to be a mentor</h5>
+                        <p translate="signup.sort_description.recruiter">Create a <b>mentor</b> account.</p><br>
+                        <div><a href="{{ route('mentor-register') }}" class="btn btn-lg btn-success">Become a Mentor</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
