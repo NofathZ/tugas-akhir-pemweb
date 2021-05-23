@@ -45,11 +45,36 @@ class MenteeController extends Controller
             'phone_number',
             'courses.name as course_name',
             'degree',
+            'schedules.id as schedule_id',
             'days'
         )
         ->where('schedules.id', $schedule_id)
         ->get(); 
         return view('mentee-detail-mentor')->with('list', $list);
+    }
+
+    public function showVerification(Request $request){
+        $schedule_id = $request->id;
+        $list = DB::table('schedules')
+        ->join('users', 'schedules.id_mentor', '=', 'users.id')
+        ->join('courses', 'schedules.id_course', '=', 'courses.id_course')
+        ->select(
+            'users.name as mentor_name',
+            'courses.name as course_name',
+            'degree',
+            'schedules.id as schedule_id'
+        )
+        ->where('schedules.id', $schedule_id)
+        ->get();
+        return view('mentee-verification-stop-session')->with('list', $list);
+    }
+
+    public function endSession(Request $request){
+        $schedule_id = $request->id;
+        // $schedule = Schedule::find($schedule_id);
+        // $schedule->delete();
+        Schedule::destroy($schedule_id);
+        return redirect('/mentee/list-mentor');
     }
 
     public function showOrder($id){

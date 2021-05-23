@@ -103,5 +103,6 @@ class MentorController extends Controller
         ->update([
             'end_session'=> 1
             ]);
+        return redirect('/mentor/list-mentee');
     }
 }

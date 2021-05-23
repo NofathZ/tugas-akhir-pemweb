@@ -15,14 +15,22 @@
             <span>Jumlah Hari : {{ $item->days }}</span>
         </div>
     </div>
+
     <div>
-        <button class="btn btn-danger disabled" data-toggle="modal" data-target="#exampleModal" style="float: right">Konfirmasi Penghentian Session</button> {{-- ini if else in aja --}}
-        <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="float: right">Konfirmasi Penghentian Session</button> {{-- ini if else in aja --}}
+        @if ($item->end_session == 1)
+        <form action="{{ route('show-verification') }}" method="post">
+            @csrf
+            <input type="hidden" name="id" value="{{ $item->schedule_id }}">
+            <button class="btn btn-danger" type="submit" data-toggle="modal" data-target="#exampleModal" style="float: right">Konfirmasi Penghentian Session</button>
+        </form>
+        @else
+        <button class="btn btn-danger disabled" data-toggle="modal" data-target="#exampleModal" style="float: right">Konfirmasi Penghentian Session</button>
+        @endif
     </div>
     @endforeach
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -38,7 +46,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <style>
     .img-thumbnail {

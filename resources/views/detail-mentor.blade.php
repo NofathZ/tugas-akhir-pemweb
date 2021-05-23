@@ -26,7 +26,7 @@
                 <p>Chat via Whatsapp/LINE/Telegram</p>
             </section>
 
-            <a href="/order/{{ $item->id }}"><button class="btn btn-primary">Reach Out</button></a>
+            <a href="/mentee/order/{{ $item->id }}"><button class="btn btn-primary">Reach Out</button></a>
         </div>
     </div>
     <div class="w-100"></div>

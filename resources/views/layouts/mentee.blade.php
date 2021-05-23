@@ -61,9 +61,12 @@
           </form>
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
+            @guest
+            @else    
             <li class="nav-item">
-              <a href="#">List Mentor</a>
+              <a href="/list-mentor">List Mentor</a>
             </li>
+            @endguest
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-bell-55"></i>
@@ -144,8 +147,8 @@
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <span class="dropdown-item">Rp. 200000</span> 
-                        <a href="#" class="dropdown-item">Redeem Voucher</a> 
+                        <span class="dropdown-item">Money: Rp {{ number_format(Auth::user()->money, $decimals = 0, $decimal_separator=",", $thousand_separator = ".")  }}</span> 
+                        <a href="/mentee/redeem-voucher" class="dropdown-item">Redeem Voucher</a> 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">

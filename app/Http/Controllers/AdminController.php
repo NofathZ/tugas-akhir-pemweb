@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Code;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class AdminController extends Controller
@@ -41,6 +45,10 @@ class AdminController extends Controller
     public function showCodes(){
         $codes = Code::all();
         return view('admin-list-voucher')->with('codes', $codes);
+    }
+
+    public function showAddCode(){
+        return view('admin-tambah-voucher');
     }
 
     public function addCode(Request $request){

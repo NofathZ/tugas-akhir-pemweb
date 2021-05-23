@@ -67,9 +67,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/verify/{id}', [App\Http\Controllers\AdminController::class, 'verifyMentor'])->name('verify');
     Route::get('/reject/{id}', [App\Http\Controllers\AdminController::class, 'rejectMentor'])->name('reject');
     Route::post('/addcode', [App\Http\Controllers\AdminController::class, 'addCode'])->name('addcode');
-    Route::get('/tambah-voucher', function() {
-        return view('admin-tambah-voucher');
-    });
+    Route::get('/tambah-voucher', [App\Http\Controllers\AdminController::class, 'showAddCode']);
 });
 
 Route::prefix('mentor')->group(function () {
@@ -90,11 +88,14 @@ Route::prefix('mentee')->group(function(){
     Route::post('/redeem', [App\Http\Controllers\MenteeController::class, 'redeem'])->name('redeem-voucher');
     Route::get('/order/{id}', [App\Http\Controllers\MenteeController::class, 'showOrder']);
     Route::post('/detail-mentor', [App\Http\Controllers\MenteeController::class, 'showMentorInfo']);
+    Route::post('/show-verification', [App\Http\Controllers\MenteeController::class, 'showVerification'])->name('show-verification');
+    Route::post('/end-session', [App\Http\Controllers\MenteeController::class, 'endSession'])->name('end-session');
 });
 
 Route::get('/detail-mentor/{id}', [App\Http\Controllers\UserController::class, 'showMentorDetail']);
 Route::get('/order', [App\Http\Controllers\MenteeController::class, 'order'])->name('order');
-
+Route::get('/search', [App\Http\Controllers\UserController::class, 'showSearchPage']);
+Route::get('/search-filter', [App\Http\Controllers\UserController::class, 'searchAndFilter'])->name('search-and-filter');
 
 
 Route::get('/confirm-stop-session', function() {

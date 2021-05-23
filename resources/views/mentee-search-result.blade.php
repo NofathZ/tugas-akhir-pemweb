@@ -30,6 +30,26 @@
                                     <label for="subjects" class="form-label">Subjects</label>
                                     <select class="form-control selectpicker" name="subjects[]" id="subjects"
                                         multiple data-actions-box="true" data-selected-text-format="count">
+                                        {{-- <option value="1" selected>SD - Matematika</option>
+                                        <option value="2" selected>SD - IPA</option>
+                                        <option value="3" selected>SD - IPS</option>
+                                        <option value="4" selected>SD - Bahasa Inggris</option>
+                                        <option value="5" selected>SD - Bahasa Indonesia</option>
+                                        <option value="6" selected>SMP - Matematika</option>
+                                        <option value="7" selected>SMP - IPA</option>
+                                        <option value="8" selected>SMP - IPS</option>
+                                        <option value="9" selected>SMP - Bahasa Inggris</option>
+                                        <option value="10" selected>SMP - Bahasa Indonesia</option>
+                                        <option value="11" selected>SMA - Matematika</option>
+                                        <option value="12" selected>SMA - Biologi</option>
+                                        <option value="13" selected>SMA - Fisika</option>
+                                        <option value="14" selected>SMA - Kimia</option>
+                                        <option value="15" selected>SMA - Geografi</option>
+                                        <option value="16" selected>SMA - Sejarah</option>
+                                        <option value="17" selected>SMA - Sosiologi</option>
+                                        <option value="18" selected>SMA - Ekonomi</option>
+                                        <option value="19" selected>SMA - Bahasa Inggris</option>
+                                        <option value="20" selected>SMA - Bahasa Indonesia</option> --}}
                                         <option value="1">SD - Matematika</option>
                                         <option value="2">SD - IPA</option>
                                         <option value="3">SD - IPS</option>
@@ -64,6 +84,11 @@
                 {{-- Isi content dari sini --}}
 
                 @foreach ($mentors as $mentor)
+                @foreach ($list_mentor as $list_m)
+                @if ($mentor->id == $list_m->mentor_id)
+                    
+                
+                
                 <div class="card mb-3 mx-3">
                     <div class="row g-0">
                         <div class="col-3 rounded-3">
@@ -96,13 +121,15 @@
                             <div class="row">
                                 <div class="mt-5">
                                     <div class=" d-grid mx-2">
-                                        <button type="button" class="btn btn-primary  btn-lg">View Profile</button>
+                                        <a href="/detail-mentor/{{$mentor->id}}"><button type="button" class="btn btn-primary  btn-lg">View Profile</button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
+                @endforeach
                 @endforeach
             </div>
             {{-- End Isi Content--}}
