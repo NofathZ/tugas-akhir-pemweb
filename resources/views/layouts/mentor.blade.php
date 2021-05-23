@@ -32,35 +32,14 @@
           <!-- Nav items -->
           <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item">
-              <a class="nav-link active" href="#">
-                <i class="ni ni-tv-2 text-primary"></i>
-                <span class="nav-link-text">Dashboard</span>
-              </a>
               <a class="nav-link active" href="/mentor/list-mentee">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">List Mentee</span>
-              </a>
-              <a class="nav-link active" href="/mentor/detail-mentee">
-                <i class="ni ni-tv-2 text-primary"></i>
-                <span class="nav-link-text">Detail Mentee</span>
               </a>
             </li>
           </ul>
           <!-- Divider -->
           <hr class="my-3">
-          <!-- Heading -->
-          <h6 class="navbar-heading p-0 text-muted">
-            <span class="docs-normal">Documentation</span>
-          </h6>
-          <!-- Navigation -->
-          <ul class="navbar-nav mb-md-3">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="ni ni-spaceship"></i>
-                <span class="nav-link-text">Getting started</span>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -71,23 +50,10 @@
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-            <div class="form-group mb-0">
-              <div class="input-group input-group-alternative input-group-merge">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-search"></i></span>
-                </div>
-                <input class="form-control" placeholder="Search" type="text">
-              </div>
-            </div>
-            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </form>
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
+              
               <!-- Sidenav toggler -->
               {{-- <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-toggle="collapse" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
@@ -96,11 +62,6 @@
                   <i class="sidenav-toggler-line"></i>
                 </div>
               </div> --}}
-            </li>
-            <li class="nav-item d-sm-none">
-              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                <i class="ni ni-zoom-split-in"></i>
-              </a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -201,25 +162,7 @@
       </div>
     </nav>
     <!-- Header -->
-    <div class="header bg-default">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-2">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Default</li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-          <!-- Card stats -->
-        </div>
-      </div>
-    </div>
+    
     <!-- Page content -->
     <div class="container-fluid mt-4">
       @yield('content')
