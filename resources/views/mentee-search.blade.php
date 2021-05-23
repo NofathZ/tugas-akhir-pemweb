@@ -1,8 +1,11 @@
 @extends('layouts.mentee')
+@push('styles')
+<link rel="stylesheet" href="css/search.css">
+@endpush
 
 @section('content')
             {{-- Search Bar --}}
-        <div class="row flex-nowrap">
+        <div class="row flex-nowrap mt-0">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
                     <form action="{{ route('search-and-filter') }}" method="get">

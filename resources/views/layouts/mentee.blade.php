@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
+  @stack('styles')
   <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
 
@@ -64,7 +65,7 @@
             @guest
             @else    
             <li class="nav-item">
-              <a href="/list-mentor">List Mentor</a>
+              <a href="/mentee/list-mentor">List Mentor</a>
             </li>
             @endguest
             <li class="nav-item dropdown">
@@ -166,10 +167,14 @@
       </div>
     </nav>
     <!-- Page content -->
-    <div class="container-fluid mt-4">
-      {{-- @yield('content') --}}
-    </div>
+    {{-- <div class="container-fluid mt-0 mx">
+      @yield('content')
+    </div> --}}
   </div>
+
+  @yield('content')
+
+  
   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script> --}}

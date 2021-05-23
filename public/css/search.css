@@ -1,0 +1,8 @@
+body {
+    font-family:'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.img-thumbnail {
+    max-width: 300px;
+}
