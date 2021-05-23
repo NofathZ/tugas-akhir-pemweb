@@ -104,3 +104,7 @@ Route::get('/confirm-stop-session', function() {
 Route::get('/detail', function() {
     return view('mentee-detail-mentor');
 });
+
+Route::get('/navbar', function() {
+    return view('layouts.authentification-navbar');
+});

@@ -17,11 +17,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css"> --}}
+  {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> --}}
 
   <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('libexfile/nucleo/css/nucleo.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('css/login.css')}}">
+  <link rel="stylesheet" href="css/mentee-signup.css">
 
   <style>
     body {
@@ -166,8 +169,9 @@
       </div>
     </nav>
     <!-- Page content -->
-    <div class="container-fluid mt-4">
-      {{-- @yield('content') --}}
+    <div>
+      @yield('content')
+      
     </div>
   </div>
   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
