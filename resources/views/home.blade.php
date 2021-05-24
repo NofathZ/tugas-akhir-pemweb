@@ -197,7 +197,7 @@
 					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 						<div class="member">
 							<div class="member-img">
-								<img src="" class="img-team" alt="">
+								<img src="https://media.discordapp.net/attachments/830997955129376778/846051306941448212/photo-1607990281513-2c110a25bd8c.png?width=739&height=676" class="img-team" alt="">
 								<div class="social">
 									<a href=""><i class="bi bi-twitter"></i></a>
 									<a href=""><i class="bi bi-facebook"></i></a>
@@ -215,7 +215,7 @@
 					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 						<div class="member">
 							<div class="member-img">
-								<img src="https://lh6.googleusercontent.com/fW5suRCLmvNsWXrtUC2tN3bwOAewSLNixg5iqCCDEytJ6f8c81nDJ7fWOJv45KJVqWg-C91pBF0r4w=w1920-h937"
+								<img src="https://media.discordapp.net/attachments/830997955129376778/846056946426970152/photo-1518468819319-0b52ebdd0774.png?width=676&height=676"
 									class="img-team w-100" alt="">
 								<div class="social">
 									<a href=""><i class="bi bi-twitter"></i></a>
@@ -226,7 +226,7 @@
 							</div>
 							<div class="member-info">
 								<h4>Nofath Zukhrufi Haideal</h4>
-								<span>Backend Developer</span>
+								<span>Frontend Developer</span>
 							</div>
 						</div>
 					</div>
@@ -234,7 +234,7 @@
 					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 						<div class="member">
 							<div class="member-img">
-								<img src="https://lh3.googleusercontent.com/fife/ABSRlIpv_ZQS2_yRpLezQuTZ3vOg2pT8u7quoWw_bwvKtyU04LoCdf6eO6sMBRPaqo74TYSLLzPBMzUbhyk8dmtpbJmZ1y5xP3CS5s6WM7eSh366vzuYmHLOmpVE1MKgC2YfKPJ-Fb7_heUReuguu_ASeym_Ftkgp3ySxLj-aewlHgmLKw3mUji1tebwGe33w83BVlDaWBGnHdtRQiXNG0lLbKUkAVzqkgaXZrg5XvQsUcGIeiuLRMXeWqDaJM0t0n0APTtLSGf7QuObJiEu9uyspPbGAiHdixeKI7aPDyl019l9T11p8cnV2AWlGXpNf4k0irHrZlnGPhdV7s7SdKuLKxeTLavQvxbs2hv5kzJY5uZZjG3ySMYd0tCt9XemzM4YqVF7Jiq7vQx8wZIaBoEnFLGr9q5kbp9C4TuonCYvr2J0FMVxyt8Qfy9trUOBl_Tt70zQLJmEUE4SneqsF4wZDYbM4UtYW_eps81lypd72Uha4KwZD3X2T04VCPsPTzCRErQmKq82Gwwy26dnR0vRN8lCdjRm29uGNKDQdAYA2orVxHagZRgCZCL3C1lJsjuPbcdEfm7AzYX3n_6FNW1l8Vhna_5-Ha79KvGsQKMukgv27mvsc1Dww9_fgisiXTbYUo7X5yNNV9lca_whKwB7WFPhRddFw36LYLBWUaScwhLfeiwM9_RQpAL-iJm59swkWT39d8cfd9Z2xRPl080squgJmyOlw1Bo4Q=w1920-h937-ft"
+								<img src="https://media.discordapp.net/attachments/830997955129376778/846051395311239218/photo-1569779213435-ba3167dde7cc.png?width=676&height=676"
 									class="img-team" alt="">
 								<div class="social">
 									<a href=""><i class="bi bi-twitter"></i></a>

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 // HomePage Mentee
 Route::get('/', function () {
-    return view('welcome'); // nanti ganti
+    return redirect('/home'); // nanti ganti
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

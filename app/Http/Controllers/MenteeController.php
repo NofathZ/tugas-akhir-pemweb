@@ -12,6 +12,11 @@ use App\Models\Code;
 class MenteeController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showMentors(){
         $id = Auth::id();
         $list = DB::table('schedules')
@@ -139,7 +144,7 @@ class MenteeController extends Controller
             ->update([
                 'status' => 'Unavailable'
             ]);
-            return redirect('/home');
+            return redirect('/search');
         }
 
     }

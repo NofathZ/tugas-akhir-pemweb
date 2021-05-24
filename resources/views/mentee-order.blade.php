@@ -13,7 +13,7 @@
         </div>
     </div>
     <center>
-        <p>Sebelum memesan, baca terlebih dahulu <a href="">Syarat dan Ketentuan</a> yang berlaku</p>
+        <p>Sebelum memesan, baca terlebih dahulu <a href="https://drive.google.com/file/d/1xcaBmygr7a-x6lGDA0O-bkaDot1jr04o/view?usp=sharing">Syarat dan Ketentuan</a> yang berlaku</p>
     </center>
     <form method="GET" action="{{ route('order') }}">
         <div class="mb-3">
